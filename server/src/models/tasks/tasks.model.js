@@ -17,9 +17,12 @@ const getAllTasks = async () => {
 };
 
 const getTaskById = async (taskId) => {
-  return await Task.findOne({
-    id: taskId,
-  });
+  return await Task.findOne(
+    {
+      id: taskId,
+    },
+    { _id: 0, __v: 0 }
+  );
 };
 
 module.exports = {
