@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
   },
-  taskDone: [String],
+  tasksDone: [String],
   startingTime: {
     type: Date,
     required: false,
