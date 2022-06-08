@@ -7,6 +7,7 @@ const passport = require("passport");
 const cookieSession = require("cookie-session");
 
 const authMiddleWare = require("./routes/auth/auth.google");
+const apiRouter = require("./routes/api/api.v1");
 
 require("dotenv").config();
 
@@ -39,5 +40,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use("/auth", authMiddleWare);
+app.use("/api/v1", apiRouter);
 
 module.exports = app;
