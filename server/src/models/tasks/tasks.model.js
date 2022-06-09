@@ -4,6 +4,7 @@ const addNewTask = async (newTask) => {
   await Task.findOneAndUpdate(
     {
       id: newTask.id,
+      sectionId: newTask.sectionId,
     },
     newTask,
     {

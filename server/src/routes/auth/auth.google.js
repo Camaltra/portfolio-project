@@ -28,7 +28,7 @@ auth.get("/logout", (req, res) => {
 });
 
 auth.get("/user", (req, res) => {
-  res.send(req.user);
+  return res.send(req.user);
 });
 
 module.exports = auth;
