@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 
 import UserProvider from "../../context/user/user.context";
 
-const ProtectedRoute = ({ children }) => {
+export const ProtectedRoute = ({ children }) => {
   const user = useContext(UserProvider.context);
   console.log(user);
   if (!user) {
@@ -12,4 +12,11 @@ const ProtectedRoute = ({ children }) => {
   return children;
 };
 
-export default ProtectedRoute;
+export const AlreadyLogged = ({ children }) => {
+  const user = useContext(UserProvider.context);
+  console.log(user);
+  if (user) {
+    return <Navigate to="/dashboard" />;
+  }
+  return children;
+};

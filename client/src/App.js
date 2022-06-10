@@ -3,7 +3,10 @@ import { useContext, useEffect, useState } from "react";
 
 import LoginPage from "./routes/login/login.component";
 import Dashboard from "./routes/dashboard/dashboard.component";
-import ProtectedRoute from "./routes/security/security.routes";
+import {
+  ProtectedRoute,
+  AlreadyLogged,
+} from "./routes/security/security.routes";
 
 const Info = () => {
   return <h1>This is some information about the project</h1>;
@@ -12,7 +15,14 @@ const Info = () => {
 function App() {
   return (
     <Routes>
-      <Route index element={<LoginPage />} />
+      <Route
+        index
+        element={
+          <AlreadyLogged>
+            <LoginPage />
+          </AlreadyLogged>
+        }
+      />
       <Route path="/info" element={<Info />} />
       <Route
         path="/dashboard"
