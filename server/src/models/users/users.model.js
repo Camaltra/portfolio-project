@@ -24,21 +24,8 @@ const updateUserById = async (userId, updatedUser) => {
   return isUpdated;
 };
 
-const addNewUser = async (newUser) => {
-  await User.findOneAndUpdate(
-    {
-      id: newUser.id,
-    },
-    newUser,
-    {
-      upsert: true,
-    }
-  );
-};
-
 module.exports = {
   getAllUsers,
   getUserById,
   updateUserById,
-  addNewUser,
 };

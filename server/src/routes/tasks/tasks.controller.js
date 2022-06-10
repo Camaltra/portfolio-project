@@ -31,7 +31,6 @@ const httpAddNewTask = async (req, res) => {
 
 const httpGetTaskById = async (req, res) => {
   const id = req.params.id;
-  console.log(id);
 
   const task = await getTaskById(id);
   if (!task) {
