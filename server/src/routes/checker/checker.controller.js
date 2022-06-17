@@ -1,15 +1,10 @@
 const axios = require("axios");
 
 const httpGetCheckRequest = async (req, res) => {
-  // console.log(req.query.taskId);
-  // console.log(req.query.userGithub);
-
   const GITHUB_NAME = req.query.github_username;
   const TASK_ID = req.query.task_id;
   const SECTION_ID = req.query.section_id;
   const NUMBER_OF_CHECKS = req.query.number_of_checks;
-
-  //Send all userfull info, if missing, return error 400
 
   let response = [];
   let statusRes = 000;
@@ -34,12 +29,11 @@ const httpGetCheckRequest = async (req, res) => {
     return res.status(400).json(response);
   }
 
+  //TO DO IN THIS FUNCTION
   //get the response, check if all good, if all good, insert the task into the user on the database
 
+  // TO DO IN THE SERVER CHECKER DIRECTLY
   //Insert the response with all token into the history database, whatever the response is to allow admin o see what heppened
-
-  //Send back the reponse to the user, with all check, see if we do an check errors or not, will depend if we just send OK, or all the
-  //check obejct
   return res.status(200).json(response);
 };
 
