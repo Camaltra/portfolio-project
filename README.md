@@ -44,3 +44,17 @@ A futur script will be added a the end of the project to join all these operatio
 ![plot](public/architecture.png "Title")
 
 All the architecture is based on a MVC model, and use differents externes tools, as Atlas Mongo DB, Judge0 API and google auth.
+
+## Bugs
+
+Not bugs know from the API V1. If you discover any bug, feel free to reach me, so I'll find a way to fix it.
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
