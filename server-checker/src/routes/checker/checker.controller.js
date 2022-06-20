@@ -17,8 +17,6 @@ const httpCheckTask = async (req, res) => {
   const SECTION_ID = String(req.body.section_id);
   const NUMBER_OF_CHECKS = Number(req.body.number_of_checks);
 
-  console.log(NUMBER_OF_CHECKS);
-
   if (!GITHUB_NAME || !TASK_ID || !SECTION_ID || !NUMBER_OF_CHECKS) {
     return res.status(400).json({ error: "Bad body params" });
   }
@@ -83,11 +81,17 @@ const httpCheckTask = async (req, res) => {
     allCode.push(newItem);
   });
 
+  let error = false;
+
   const resultFormCheckerCode = await getResponse({
     submissions: allCode,
   }).catch((err) => {
-    console.log(err);
+    error = true;
   });
+
+  if (error) {
+    return res.status(400).json({ error: "Checker got block / bugged" });
+  }
 
   const checkerResult = mergeTwoDictForChecker(
     checkerResultFromFile,

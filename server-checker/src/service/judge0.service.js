@@ -1,5 +1,7 @@
 const axios = require("axios");
 
+require("dotenv").config();
+
 const URL = "https://judge0-ce.p.rapidapi.com";
 
 const getResult = async (tokenString) => {
@@ -40,12 +42,10 @@ const getResult = async (tokenString) => {
 };
 
 const getResponse = async (data) => {
-  console.log(data);
-
   const options = {
     method: "POST",
-    url: `${URL}/submissions`,
-    params: { base64_encoded: "false", fields: "*" },
+    url: `${URL}/submissions/batch`,
+    params: { base64_encoded: "false", wait: "true", fields: "*" },
     headers: {
       "content-type": "application/json",
       "Content-Type": "application/json",
@@ -66,8 +66,9 @@ const getResponse = async (data) => {
   //This is really bad!!!!!!
   //NEED TO FIX IT
   //To wait the judge0 server to proccess the code
+  console.log(tokenArray);
   await new Promise((r) => setTimeout(r, 2000));
-  return getResult(tokenArray.join());
+  return await getResult(tokenArray.join());
 };
 
 module.exports = {
