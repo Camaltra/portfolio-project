@@ -18,7 +18,6 @@ const AUTH_OPTIONS = {
 
 async function verifyCallback(_, __, profile, done) {
   if (profile) {
-    console.log(profile.emails);
     const time = Date.now();
     const newUser = {
       id: profile.id,

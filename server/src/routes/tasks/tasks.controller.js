@@ -12,7 +12,6 @@ const httpGetAllTasks = async (req, res) => {
 
 const httpAddNewTask = async (req, res) => {
   const task = req.body;
-  console.log(req.body);
 
   if (
     !task.id ||

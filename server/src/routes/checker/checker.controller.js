@@ -30,7 +30,7 @@ const httpGetCheckRequest = async (req, res) => {
   }
 
   //TO DO IN THIS FUNCTION
-  //get the response, check if all good, if all good, insert the task into the user on the database
+  // console.log(req.user);
 
   // TO DO IN THE SERVER CHECKER DIRECTLY
   //Insert the response with all token into the history database, whatever the response is to allow admin o see what heppened
