@@ -12,7 +12,7 @@ The full patern course have been based on the [blog post](https://www.techinterv
 
 There are some other platforms which offers the same service, but with Hippo'nterview, all the solutions are free for holberton school students, and work on the same way as the school.
 
-## Installation
+## Installation & Usage
 
 Clone the repo.
 
