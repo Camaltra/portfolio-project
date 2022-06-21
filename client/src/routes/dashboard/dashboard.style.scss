@@ -1,0 +1,23 @@
+.dashboard-container {
+  background-color: #f9f9f9;
+  height: 100vh;
+  width: 100vw;
+  margin: 0px;
+  display: flex;
+  flex-direction: row;
+
+  .section-select {
+    width: 40%;
+  }
+
+  .all-card-container {
+    height: 90vh;
+    border-left: solid 1px #d4cfcf;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+    background-color: #f9f9f9;
+    overflow: scroll;
+  }
+}

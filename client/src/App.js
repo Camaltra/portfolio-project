@@ -1,8 +1,9 @@
-import { Routes, Router, Route, Navigate } from "react-router-dom";
+import { Routes, Router, Route, Navigate, Outlet } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 
 import LoginPage from "./routes/login/login.component";
 import Dashboard from "./routes/dashboard/dashboard.component";
+import NavBar from "./components/navbar/navbar.component";
 import {
   ProtectedRoute,
   AlreadyLogged,
@@ -23,9 +24,11 @@ function App() {
           </AlreadyLogged>
         }
       />
-      <Route path="/info" element={<Info />} />
+
+      <Route path="info" element={<Info />} />
+
       <Route
-        path="/dashboard"
+        path="dashboard"
         element={
           <ProtectedRoute>
             <Dashboard />

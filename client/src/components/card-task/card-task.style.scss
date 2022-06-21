@@ -1,0 +1,127 @@
+.card-task {
+  background-color: #ffffff;
+  width: 70%;
+  border-radius: 20px;
+  border: solid 0.3px #d4cfcf;
+  box-shadow: 13px 10px 15px 3px rgba(226, 220, 220, 0.21);
+  white-space: pre-line;
+  margin-bottom: 60px;
+  .card-task-title {
+    display: flex;
+    flex-direction: row;
+    background-color: #efefef;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    border-bottom: solid 0.3px #d4cfcf;
+
+    h1 {
+      font-size: 1em;
+      margin-left: 9px;
+    }
+  }
+
+  .card-task-content {
+    margin-left: 10px;
+    margin-right: 10px;
+
+    .card-task-description {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      line-height: 23px;
+      span {
+        background-color: #f9f2f4;
+        padding-left: 4px;
+        padding-right: 4px;
+        border-radius: 5px;
+        color: #e63a5a;
+      }
+    }
+
+    .card-task-prototype-container {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 20px;
+
+      .card-task-prototype {
+        background-color: #f9f2f4;
+        padding-left: 4px;
+        padding-right: 4px;
+        border-radius: 5px;
+        color: #e63a5a;
+      }
+    }
+
+    .card-task-exemple-container {
+      background-color: #f5f5f5;
+      padding: 2.5px 0px 2.5px 0px;
+      border-radius: 10px;
+      border: solid 0.3px #d4cfcf;
+      margin-bottom: 15px;
+      .card-task-exemple {
+        margin: 7px 10px 7px 10px;
+        font-family: "Nanum Gothic Coding", monospace;
+        line-height: 25px;
+        font-size: 15px;
+      }
+    }
+
+    .card-task-edge-cases-container {
+      .card-task-edge-cases-title {
+        margin-bottom: 5px;
+      }
+
+      .card-task-edge-cases {
+        margin: 7px 10px 7px 10px;
+        font-family: "Nanum Gothic Coding", monospace;
+        line-height: 25px;
+        font-size: 15px;
+      }
+    }
+  }
+
+  .card-task-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #efefef;
+    height: 40px;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top: solid 0.3px #d4cfcf;
+
+    .card-task-button {
+      height: 20px;
+      font-size: 0.8em;
+      margin: 5px;
+      padding: 2.5px 5px 2.5px 5px;
+      background-color: #ffffff;
+      border-radius: 5px;
+      -webkit-user-select: none;
+      -moz-user-select: -moz-none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .card-task-button:hover {
+      cursor: pointer;
+    }
+
+    .card-task-button:active {
+      background-color: #eae7e7;
+    }
+
+    .card-task-clue-button-container {
+      display: flex;
+      flex-direction: row;
+      margin-right: 10px;
+    }
+
+    .card-task-check-button-container {
+      margin-left: 10px;
+    }
+  }
+}

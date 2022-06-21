@@ -21,7 +21,7 @@ const taskSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
-  prototype: {
+  taskPrototype: {
     type: String,
     required: true,
   },

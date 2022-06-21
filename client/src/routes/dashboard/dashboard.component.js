@@ -2,6 +2,10 @@ import { useContext, useState, useEffect } from "react";
 import axios from "axios";
 
 import UserProvider from "../../context/user/user.context";
+import CardTask from "../../components/card-task/card-task.components";
+import NavBar from "../../components/navbar/navbar.component";
+
+import "./dashboard.style.scss";
 
 const Dashboard = () => {
   const user = useContext(UserProvider.context);
@@ -24,22 +28,19 @@ const Dashboard = () => {
 
   return isLoading ? (
     //Creer une page de loading...
-    <div>
-      <h1>THIS IS THE DASHBOARD</h1>
-    </div>
+    <div></div>
   ) : (
     <>
-      <div>
-        <h1>THIS IS THE DASHBOARD</h1>
-        <p>{user}</p>
-        {allTasks.map((task) => {
-          return (
-            <div key={task.id}>
-              <h1>{task.id}</h1>
-              <p>{task.description}</p>
-            </div>
-          );
-        })}
+      <NavBar />
+      <div className="dashboard-container">
+        <div className="section-select">
+          <h1>Helllloo</h1>
+        </div>
+        <div className="all-card-container">
+          {allTasks.map((task) => {
+            return <CardTask task={task} key={task.id} />;
+          })}
+        </div>
       </div>
     </>
   );
