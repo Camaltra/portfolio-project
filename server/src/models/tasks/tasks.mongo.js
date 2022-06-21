@@ -9,7 +9,19 @@ const taskSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  title: {
+    type: String,
+    required: true,
+  },
   description: {
+    type: String,
+    required: true,
+  },
+  exemple: {
+    type: String,
+    required: false,
+  },
+  prototype: {
     type: String,
     required: true,
   },
@@ -26,6 +38,10 @@ const taskSchema = new mongoose.Schema({
     required: true,
   },
   optimizeSolution: {
+    type: String,
+    required: true,
+  },
+  edgeCases: {
     type: String,
     required: true,
   },
