@@ -12,6 +12,17 @@ const Dashboard = () => {
 
   const [isLoading, setLoading] = useState(true);
   const [allTasks, setAllTasks] = useState([]);
+  const [allTasksToShow, setAllTasksToShow] = useState(null);
+
+  const selectAllTaskFromSection = (sectionId) => {
+    console.log(allTasks);
+    const allSectionTask = allTasks.filter(
+      (task) => task.sectionId === sectionId
+    );
+
+    console.log(allSectionTask);
+    setAllTasksToShow(allSectionTask);
+  };
 
   useEffect(() => {
     setTimeout(() => {
@@ -34,13 +45,56 @@ const Dashboard = () => {
       <NavBar />
       <div className="dashboard-container">
         <div className="section-select">
-          <h1>Helllloo</h1>
+          <div
+            className="section-select-button"
+            onClick={() => {
+              selectAllTaskFromSection("0");
+            }}
+          >
+            <p>Section 1</p>
+          </div>
+          <div
+            className="section-select-button-disable"
+            // onClick={() => {
+            //   selectAllTaskFromSection("1");
+            // }}
+          >
+            <p>Section 2</p>
+          </div>
+          <div
+            className="section-select-button-disable"
+            // onClick={() => {
+            //   selectAllTaskFromSection("2");
+            // }}
+          >
+            <p>Section 3</p>
+          </div>
+          <div
+            className="section-select-button-disable"
+            // onClick={() => {
+            //   selectAllTaskFromSection("3");
+            // }}
+          >
+            <p>Section 4</p>
+          </div>
+          <div
+            className="section-select-button-disable"
+            // onClick={() => {
+            //   selectAllTaskFromSection("4");
+            // }}
+          >
+            <p>Section 5</p>
+          </div>
         </div>
-        <div className="all-card-container">
-          {allTasks.map((task) => {
-            return <CardTask task={task} key={task.id} />;
-          })}
-        </div>
+        {!allTasksToShow ? (
+          <div>Please select a section</div>
+        ) : (
+          <div className="all-card-container">
+            {allTasksToShow.map((task) => {
+              return <CardTask task={task} key={task.id} />;
+            })}
+          </div>
+        )}
       </div>
     </>
   );
