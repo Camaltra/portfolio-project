@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 
 import LoginPage from "./routes/login/login.component";
 import FullPath from "./routes/full-path/full-path.component";
-import NavBar from "./components/navbar/navbar.component";
+import Dashboard from "./routes/dashboard/dashboard.component";
 import {
   ProtectedRoute,
   AlreadyLogged,
@@ -30,7 +30,7 @@ function App() {
         path="dashboard"
         element={
           <ProtectedRoute>
-            <FullPath />
+            <Dashboard />
           </ProtectedRoute>
         }
       />
