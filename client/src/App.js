@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import LoginPage from "./routes/login/login.component";
 import FullPath from "./routes/full-path/full-path.component";
 import Dashboard from "./routes/dashboard/dashboard.component";
+import Welcome from "./routes/welcome/welcome.component";
 import {
   ProtectedRoute,
   AlreadyLogged,
@@ -39,6 +40,14 @@ function App() {
         element={
           <ProtectedRoute>
             <FullPath />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="welcome"
+        element={
+          <ProtectedRoute>
+            <Welcome />
           </ProtectedRoute>
         }
       />
