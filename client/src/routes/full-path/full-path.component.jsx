@@ -43,8 +43,9 @@ const FullPath = () => {
   ) : (
     <>
       <NavBar />
-      <div className="dashboard-container">
+      <div className="full-path-container">
         <div className="section-select">
+          {/* TO MAKE A COMPONENT */}
           <div
             className="section-select-button"
             onClick={() => {
