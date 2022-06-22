@@ -5,9 +5,9 @@ import UserProvider from "../../context/user/user.context";
 import CardTask from "../../components/card-task/card-task.components";
 import NavBar from "../../components/navbar/navbar.component";
 
-import "./dashboard.style.scss";
+import "./full-path.style.scss";
 
-const Dashboard = () => {
+const FullPath = () => {
   const user = useContext(UserProvider.context);
 
   const [isLoading, setLoading] = useState(true);
@@ -100,4 +100,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default FullPath;

@@ -10,12 +10,13 @@ const NavBar = () => {
   };
   return (
     <div className="nav-bar">
+      <h3 className="link-to-pages">Profile</h3>
       <h3 className="link-to-pages">Full Path</h3>
       <div className="dashboard-header">
         <h1>Hyppo'nterview</h1>
       </div>
       <h3 className="link-to-pages">Randomize</h3>
-      <h3 className="logout" onClick={logOut}>
+      <h3 className="link-to-pages" onClick={logOut}>
         Logout
       </h3>
     </div>

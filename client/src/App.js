@@ -2,7 +2,7 @@ import { Routes, Router, Route, Navigate, Outlet } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 
 import LoginPage from "./routes/login/login.component";
-import Dashboard from "./routes/dashboard/dashboard.component";
+import FullPath from "./routes/full-path/full-path.component";
 import NavBar from "./components/navbar/navbar.component";
 import {
   ProtectedRoute,
@@ -26,12 +26,19 @@ function App() {
       />
 
       <Route path="info" element={<Info />} />
-
       <Route
         path="dashboard"
         element={
           <ProtectedRoute>
-            <Dashboard />
+            <FullPath />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="full-path"
+        element={
+          <ProtectedRoute>
+            <FullPath />
           </ProtectedRoute>
         }
       />
