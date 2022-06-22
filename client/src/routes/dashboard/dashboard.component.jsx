@@ -10,11 +10,10 @@ const Dashboard = () => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 100);
+    }, 200);
   }, []);
 
   return loading ? (
-    //Creer une page de loading...
     <></>
   ) : (
     <>

@@ -1,0 +1,86 @@
+.welcome-container {
+  background-color: #efefef;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .welcome-title {
+    text-align: center;
+    padding-bottom: 20px;
+    color: #e63a5a;
+    margin-top: 40px;
+    font-family: "Dancing Script", cursive;
+    font-size: 100px;
+    margin-bottom: 60px;
+    margin-top: -260px;
+  }
+
+  .welcome-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: solid 3px #e63a5a;
+    border-radius: 30px;
+    height: 450px;
+    width: 400px;
+
+    .welcome-hey {
+      font-size: 50px;
+      margin-bottom: 30px;
+    }
+
+    .welcome-greating {
+      margin-bottom: 30px;
+    }
+
+    span {
+      color: #e63a5a;
+      font-family: "Dancing Script", cursive;
+      font-size: 50px;
+    }
+
+    .form-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      .register-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        input {
+          margin-top: 20px;
+          height: 40px;
+          width: 250px;
+          text-align: center;
+          font-size: 1.2em;
+        }
+
+        input::placeholder {
+          text-align: center;
+        }
+      }
+    }
+    .subbmit-button {
+      height: 40px;
+      width: 100px;
+      margin-top: 20px;
+      border-radius: 10px;
+      border: solid 1.5px #e63a5a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .subbmit-button:hover {
+      cursor: pointer;
+      background-color: #e63a5a;
+      color: white;
+    }
+  }
+}

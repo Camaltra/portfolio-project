@@ -3,6 +3,8 @@ import { useContext, useState, useEffect } from "react";
 
 import axios from "axios";
 
+import "./welcome.style.scss";
+
 const Welcome = () => {
   const user = useContext(UserProvider.context);
   const [loading, setLoading] = useState(true);
@@ -56,29 +58,35 @@ const Welcome = () => {
   return loading ? (
     <div></div>
   ) : (
-    <div>
-      <h1>Heyyyy ! Nice to meet you mate</h1>
-      <p>Seems to be your first time here</p>
-      <p>Let's get to know each other!</p>
-      <div className="form-container">
-        <form className="register-form">
-          <input
-            onChange={onChangeTypeUsername}
-            value={userInfos.username}
-            className="form-field"
-            placeholder="Username"
-            name="username"
-          />
-          <input
-            onChange={onChangeTypeGithub}
-            value={userInfos.githubProfile}
-            className="form-field"
-            placeholder="Github Username"
-            name="github-username"
-          />
-        </form>
-        <div className="subbmit-button" onClick={updateUserInfos}>
-          Continue
+    <div className="welcome-container">
+      <h1 className="welcome-title">Hippo'nterview</h1>
+      <div className="welcome-card">
+        <h1 className="welcome-hey">Heyyyyyy!</h1>
+        <h1 className="welcome-greating">
+          Nice to meet you <span>mate</span>
+        </h1>
+        <p>Seems to be your first time here</p>
+        <p>Let's get to know each other!</p>
+        <div className="form-container">
+          <form className="register-form">
+            <input
+              onChange={onChangeTypeUsername}
+              value={userInfos.username}
+              className="form-field"
+              placeholder="Username"
+              name="username"
+            />
+            <input
+              onChange={onChangeTypeGithub}
+              value={userInfos.githubProfile}
+              className="form-field"
+              placeholder="Github Username"
+              name="github-username"
+            />
+          </form>
+          <div className="subbmit-button" onClick={updateUserInfos}>
+            Continue
+          </div>
         </div>
       </div>
     </div>
