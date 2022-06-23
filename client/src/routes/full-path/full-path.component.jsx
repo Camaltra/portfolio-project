@@ -27,7 +27,7 @@ const FullPath = () => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 100);
+    }, 250);
   }, []);
 
   useEffect(() => {
@@ -92,7 +92,7 @@ const FullPath = () => {
         ) : (
           <div className="all-card-container">
             {allTasksToShow.map((task) => {
-              return <CardTask task={task} key={task.id} />;
+              return <CardTask task={task} user={user} key={task.id} />;
             })}
           </div>
         )}

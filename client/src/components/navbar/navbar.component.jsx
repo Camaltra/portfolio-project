@@ -16,9 +16,16 @@ const NavBar = () => {
   const navigateToDashboard = () => {
     window.open("/dashboard", "_self");
   };
+
+  const navigateToProfile = () => {
+    window.open("/profile", "_self");
+  };
+
   return (
     <div className="nav-bar">
-      <h3 className="link-to-pages">Profile</h3>
+      <h3 className="link-to-pages" onClick={navigateToProfile}>
+        Profile
+      </h3>
       <h3 className="link-to-pages" onClick={navigateToFullPath}>
         Full Path
       </h3>

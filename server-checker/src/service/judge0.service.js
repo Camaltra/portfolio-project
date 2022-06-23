@@ -67,7 +67,7 @@ const getResponse = async (data) => {
   //NEED TO FIX IT
   //To wait the judge0 server to proccess the code
   console.log(tokenArray);
-  await new Promise((r) => setTimeout(r, 2000));
+  await new Promise((r) => setTimeout(r, 4000));
   return await getResult(tokenArray.join());
 };
 

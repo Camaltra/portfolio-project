@@ -22,7 +22,11 @@ const httpGetCheckRequest = async (req, res) => {
     })
     .catch((err) => {
       statusRes = 400;
-      response = err.response.data;
+      try {
+        response = err.response.data;
+      } catch {
+        response = { error: "The server do not response" };
+      }
     });
 
   if (statusRes === 400) {

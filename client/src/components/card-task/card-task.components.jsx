@@ -1,13 +1,62 @@
+import { useState, useEffect } from "react";
+
+import axios from "axios";
+import ModalTask from "../modal-task/modal-task.component";
+
 import "./card-task.style.scss";
 
-const CardTask = ({ task }) => {
-  const httpSendCodeToChecker = (
+const CardTask = ({ task, user }) => {
+  const [done, setDone] = useState(false);
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [checkList, setCheckList] = useState([]);
+  const [isCurrentlyChecking, setIsCurrentlyChecking] = useState(false);
+
+  useEffect(() => {
+    if (user.tasksDone.includes(task.id) && !done) {
+      setDone(true);
+    }
+    console.log("renderTask");
+    console.log(user.tasksDone[0]);
+    console.log(task.id);
+  }, [done]);
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+  const httpSendCodeToChecker = async (
     taskId,
     sectionId,
     numberOfChecks,
     githubUsername
   ) => {
-    console.log("checking the task");
+    console.log(isCurrentlyChecking);
+    setIsOpen(true);
+    if (!isCurrentlyChecking) {
+      setIsCurrentlyChecking(true);
+      await axios
+        .get(
+          `http://localhost:8000/api/v1/check?task_id=${taskId}&github_username=${githubUsername}&section_id=${sectionId}&number_of_checks=${numberOfChecks}`
+        )
+        .then((res) => {
+          console.log(res.data);
+          let isDone = true;
+          res.data.forEach((check) => {
+            if (!check.isGood) {
+              isDone = false;
+            }
+          });
+          console.log(isDone);
+          if (isDone) {
+            setDone(true);
+          }
+          setCheckList(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      setIsCurrentlyChecking(false);
+    }
   };
 
   const getClue = (clue) => {
@@ -17,8 +66,11 @@ const CardTask = ({ task }) => {
   return (
     <div className="card-task">
       <div className="card-task-title">
-        <h1>{task.id}.</h1>
-        <h1>{task.title}</h1>
+        <div className="card-task-title-idname">
+          <h1>{task.id}.</h1>
+          <h1>{task.title}</h1>
+        </div>
+        {done ? <p>Done</p> : <p>Not Done</p>}
       </div>
       <div className="card-task-content">
         <p
@@ -51,13 +103,20 @@ const CardTask = ({ task }) => {
                 task.id,
                 task.sectionId,
                 task.numberOfChecks,
-                "Camaltra"
+                user.githubProfile
               );
             }}
           >
             Check-Code
           </div>
         </div>
+        <ModalTask
+          open={modalIsOpen}
+          onClose={closeModal}
+          onCheck={isCurrentlyChecking}
+          checkList={checkList}
+          isDone={done}
+        ></ModalTask>
         <div className="card-task-clue-button-container">
           <div
             className="card-task-button"

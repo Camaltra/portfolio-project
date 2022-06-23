@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import NavBar from "../../components/navbar/navbar.component";
 import UserProvider from "../../context/user/user.context";
-import { Typewriter, useTypewriter, Cursor } from "react-simple-typewriter";
 
 import "./dashboard.style.scss";
 
@@ -14,7 +13,7 @@ const Dashboard = () => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 200);
+    }, 250);
   }, []);
 
   const navigateToFullPath = () => {

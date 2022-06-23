@@ -5,6 +5,7 @@ import LoginPage from "./routes/login/login.component";
 import FullPath from "./routes/full-path/full-path.component";
 import Dashboard from "./routes/dashboard/dashboard.component";
 import Welcome from "./routes/welcome/welcome.component";
+import Profile from "./routes/profile/profile.component";
 import {
   ProtectedRoute,
   AlreadyLogged,
@@ -51,6 +52,8 @@ function App() {
           </ProtectedRoute>
         }
       />
+
+      <Route path="profile" element={<Profile />} />
     </Routes>
   );
 }

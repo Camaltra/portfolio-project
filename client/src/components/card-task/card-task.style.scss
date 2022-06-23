@@ -14,12 +14,20 @@
     border-top-right-radius: 20px;
     height: 40px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     border-bottom: solid 0.3px #d4cfcf;
 
-    h1 {
-      font-size: 1em;
-      margin-left: 9px;
+    .card-task-title-idname {
+      display: flex;
+      flex-direction: row;
+      h1 {
+        font-size: 1em;
+        margin-left: 9px;
+      }
+    }
+
+    p {
+      margin-right: 10px;
     }
   }
 
@@ -104,6 +112,7 @@
       -moz-user-select: -moz-none;
       -ms-user-select: none;
       user-select: none;
+      border: solid 0.3px #d4cfcf;
     }
 
     .card-task-button:hover {

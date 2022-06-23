@@ -25,7 +25,7 @@ const Welcome = () => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 100);
+    }, 250);
   }, []);
 
   const updateUserInfos = async () => {
@@ -67,8 +67,8 @@ const Welcome = () => {
         </h1>
         <p>Seems to be your first time here</p>
         <p>Let's get to know each other!</p>
-        <div className="form-container">
-          <form className="register-form">
+        <div className="welcome-form-container">
+          <form className="welcome-register-form">
             <input
               onChange={onChangeTypeUsername}
               value={userInfos.username}
@@ -84,7 +84,7 @@ const Welcome = () => {
               name="github-username"
             />
           </form>
-          <div className="subbmit-button" onClick={updateUserInfos}>
+          <div className="welcome-subbmit-button" onClick={updateUserInfos}>
             Continue
           </div>
         </div>
