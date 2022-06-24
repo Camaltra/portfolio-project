@@ -20,6 +20,7 @@ const getResult = async (tokenString) => {
   };
   const response = await axios.request(optionsGetToken);
   const responseData = response.data.submissions;
+  console.log(responseData);
   let i = 2;
   const checkerResult = [];
   responseData.forEach((checked) => {
@@ -67,7 +68,7 @@ const getResponse = async (data) => {
   //NEED TO FIX IT
   //To wait the judge0 server to proccess the code
   console.log(tokenArray);
-  await new Promise((r) => setTimeout(r, 4000));
+  await new Promise((r) => setTimeout(r, 2000));
   return await getResult(tokenArray.join());
 };
 

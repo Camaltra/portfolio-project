@@ -36,7 +36,8 @@ const CardTask = ({ task, user }) => {
       setIsCurrentlyChecking(true);
       await axios
         .get(
-          `http://localhost:8000/api/v1/check?task_id=${taskId}&github_username=${githubUsername}&section_id=${sectionId}&number_of_checks=${numberOfChecks}`
+          `http://localhost:8000/api/v1/check?task_id=${taskId}&github_username=${githubUsername}&section_id=${sectionId}&number_of_checks=${numberOfChecks}`,
+          { withCredentials: true }
         )
         .then((res) => {
           console.log(res.data);
