@@ -20,6 +20,7 @@ const getResult = async (tokenString) => {
   };
   const response = await axios.request(optionsGetToken);
   const responseData = response.data.submissions;
+  console.log(responseData);
   let i = 2;
   const checkerResult = [];
   responseData.forEach((checked) => {

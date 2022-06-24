@@ -1,0 +1,22 @@
+.check-card-container-good-check {
+  height: 40px;
+  width: 130px;
+  border: solid 2px green;
+  border-radius: 10px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 10px 0px 10px;
+}
+.check-card-container-false-check {
+  height: 40px;
+  width: 130px;
+  border: solid 2px red;
+  border-radius: 10px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 10px 0px 10px;
+}

@@ -24,8 +24,23 @@ const updateUserById = async (userId, updatedUser) => {
   return isUpdated;
 };
 
+const addTaskToUserById = async (taskId, userId) => {
+  console.log(taskId, userId);
+  const isUpdated = await User.updateOne(
+    {
+      id: userId,
+    },
+    {
+      $push: { tasksDone: taskId },
+    }
+  );
+
+  return isUpdated;
+};
+
 module.exports = {
   getAllUsers,
   getUserById,
   updateUserById,
+  addTaskToUserById,
 };

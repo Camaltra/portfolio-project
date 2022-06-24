@@ -28,7 +28,7 @@ const httpUpdateUserById = async (req, res) => {
     updatedDate: Date.now(),
   };
   if (user.username) updatedUser.username = user.username;
-  if (user.githubProfile) updatedUser.githubProfil = user.githubProfile;
+  if (user.githubProfile) updatedUser.githubProfile = user.githubProfile;
   if (user.email) updatedUser.email = user.email;
 
   const userUpdatedResult = await updateUserById(id, updatedUser);

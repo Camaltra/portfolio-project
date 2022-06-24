@@ -1,5 +1,7 @@
 const axios = require("axios");
 
+const { addTaskToUserById } = require("../../models/users/users.model");
+
 const httpGetCheckRequest = async (req, res) => {
   const GITHUB_NAME = req.query.github_username;
   const TASK_ID = req.query.task_id;
@@ -22,18 +24,31 @@ const httpGetCheckRequest = async (req, res) => {
     })
     .catch((err) => {
       statusRes = 400;
-      response = err.response.data;
+      try {
+        response = err.response.data;
+      } catch {
+        response = { error: "The server do not response" };
+      }
     });
 
   if (statusRes === 400) {
     return res.status(400).json(response);
   }
 
-  //TO DO IN THIS FUNCTION
-  // console.log(req.user);
+  let isSucced = true;
+  for (let i = 0; i < NUMBER_OF_CHECKS; i++) {
+    if (response[i].isGood === false) isSucced = false;
+  }
+
+  console.log(isSucced);
+  if (isSucced) {
+    const done = await addTaskToUserById(TASK_ID, req.user);
+    console.log(done);
+  }
 
   // TO DO IN THE SERVER CHECKER DIRECTLY
   //Insert the response with all token into the history database, whatever the response is to allow admin o see what heppened
+  //NOT ON MVP
   return res.status(200).json(response);
 };
 

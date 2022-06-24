@@ -30,7 +30,7 @@ const httpCheckTask = async (req, res) => {
   }
 
   const checkerResultFromFile = [];
-  for (let i = 0; i <= NUMBER_OF_CHECKS; i++) {
+  for (let i = 0; i < NUMBER_OF_CHECKS; i++) {
     checkerResultFromFile.push({ checkId: i, isGood: false });
   }
 
@@ -97,6 +97,12 @@ const httpCheckTask = async (req, res) => {
     checkerResultFromFile,
     resultFormCheckerCode
   );
+
+  let isSucced = true;
+  for (let i = 0; i < NUMBER_OF_CHECKS; i++) {
+    if (checkerResult[i].isGood === false) isSucced = false;
+  }
+  console.log(isSucced);
 
   shell.exec(`rm -rf ../../../checker_buff/${FOLDER_NAME_USER}`);
 
