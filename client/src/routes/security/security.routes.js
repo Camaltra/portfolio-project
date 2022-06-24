@@ -5,7 +5,6 @@ import UserProvider from "../../context/user/user.context";
 
 export const ProtectedRoute = ({ children }) => {
   const user = useContext(UserProvider.context);
-  console.log(user);
   if (!user) {
     return <Navigate to="/" />;
   }
@@ -14,7 +13,6 @@ export const ProtectedRoute = ({ children }) => {
 
 export const AlreadyLogged = ({ children }) => {
   const user = useContext(UserProvider.context);
-  console.log(user);
   if (user) {
     return <Navigate to="/dashboard" />;
   }

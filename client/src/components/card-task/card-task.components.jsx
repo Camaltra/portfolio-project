@@ -27,7 +27,6 @@ const CardTask = ({ task, user }) => {
     numberOfChecks,
     githubUsername
   ) => {
-    console.log(isCurrentlyChecking);
     setIsOpen(true);
     if (!isCurrentlyChecking) {
       setIsCurrentlyChecking(true);
@@ -37,14 +36,12 @@ const CardTask = ({ task, user }) => {
           { withCredentials: true }
         )
         .then((res) => {
-          console.log(res.data);
           let isDone = true;
           res.data.forEach((check) => {
             if (!check.isGood) {
               isDone = false;
             }
           });
-          console.log(isDone);
           if (isDone) {
             setDone(true);
           }
