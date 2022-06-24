@@ -1,0 +1,73 @@
+.modal-task-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-task-card {
+  position: fixed;
+  top: 20%;
+  right: 40%;
+  background-color: #ffffff;
+  height: 600px;
+  width: 500px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-task-checks-render {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  .modal-task-checks-render-title {
+    margin-top: -210px;
+  }
+
+  .modal-task-check-render-check-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15%;
+  }
+
+  h1 {
+    margin-top: 15px;
+  }
+}
+.modal-task-button {
+  margin-top: 20px;
+  width: 130px;
+  height: 40px;
+  align-items: center;
+  background-color: white;
+  display: flex;
+  border: 2px solid;
+  border-radius: 5px;
+  border-color: #e63a5a;
+
+  p {
+    text-align: center;
+    margin: auto;
+    color: #e63a5a;
+  }
+}
+
+.modal-task-button:hover {
+  cursor: pointer;
+  background-color: #e63a5a;
+
+  p {
+    color: white;
+  }
+}

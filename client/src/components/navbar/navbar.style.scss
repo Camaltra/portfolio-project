@@ -1,0 +1,52 @@
+.nav-bar {
+  height: 50px;
+  width: 100vw;
+  border-bottom: solid 1px #d4cfcf;
+  background-color: #f9f9f9;
+  display: flex;
+  position: absolute;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+
+  .task-nav-bar-logo {
+    height: 30px;
+    width: 30px;
+  }
+
+  .dashboard-header {
+    margin-top: 0;
+    display: flex;
+
+    h1 {
+      text-align: center;
+      color: #e63a5a;
+      font-family: "Dancing Script", cursive;
+    }
+  }
+
+  .link-to-pages {
+    font-size: 17px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 10px;
+  }
+
+  .logout {
+    position: absolute;
+    right: 10px;
+    font-size: 17px;
+    margin-top: 8px;
+  }
+
+  .link-to-pages:hover,
+  .logout:hover {
+    text-decoration: underline;
+  }
+
+  .link-to-pages:hover,
+  .logout:hover,
+  .dashboard-header h1:hover {
+    cursor: pointer;
+  }
+}

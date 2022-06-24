@@ -18,7 +18,6 @@ const AUTH_OPTIONS = {
 
 async function verifyCallback(_, __, profile, done) {
   if (profile) {
-    console.log(profile.emails);
     const time = Date.now();
     const newUser = {
       id: profile.id,
@@ -29,15 +28,15 @@ async function verifyCallback(_, __, profile, done) {
       admin: false,
       tasksDone: [],
     };
-    await User.findOneAndUpdate(
-      {
-        id: newUser.id,
-      },
-      newUser,
-      {
-        upsert: true,
-      }
-    );
+    User.findOne({ id: newUser.id })
+      .then((res) => {
+        if (!res) {
+          User.updateOne({ id: newUser.id }, newUser, { upsert: true }).then();
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
   done(null, profile);
 }

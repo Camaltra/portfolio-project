@@ -36,5 +36,4 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-// Connects planetSchema with the "planets" collection
 module.exports = mongoose.model("User", userSchema);

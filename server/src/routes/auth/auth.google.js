@@ -1,6 +1,8 @@
 const express = require("express");
 const passport = require("passport");
 
+const { getUserById } = require("../../models/users/users.model");
+
 auth = express.Router();
 
 auth.get(
@@ -17,9 +19,7 @@ auth.get(
     successRedirect: "http://localhost:3000/dashboard",
     session: true,
   }),
-  (req, res) => {
-    console.log("Google call us back");
-  }
+  (req, res) => {}
 );
 
 auth.get("/logout", (req, res) => {
@@ -27,8 +27,9 @@ auth.get("/logout", (req, res) => {
   return res.redirect("http://localhost:3000/");
 });
 
-auth.get("/user", (req, res) => {
-  res.send(req.user);
+auth.get("/user", async (req, res) => {
+  const user = await getUserById(req.user);
+  return res.status(200).json(user);
 });
 
 module.exports = auth;

@@ -1,0 +1,80 @@
+.profile-container {
+  background-color: #f9f9f9;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .profile-text {
+    margin-top: -100px;
+
+    h1 {
+      font-size: 60px;
+      margin-bottom: -20px;
+    }
+    .profile-title {
+      color: #e63a5a;
+      margin-top: 40px;
+      font-family: "Dancing Script", cursive;
+      font-size: 100px;
+      margin-bottom: 40px;
+      margin-left: 300px;
+    }
+  }
+
+  .profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: solid 3px #e63a5a;
+    border-radius: 30px;
+    height: 450px;
+    width: 400px;
+    box-shadow: 10px 10px 5px #d55847;
+
+    .profile-form-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      .profile-register-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        input {
+          margin-top: 20px;
+          margin-bottom: 20px;
+          height: 40px;
+          width: 250px;
+          text-align: center;
+          font-size: 1.2em;
+        }
+
+        input::placeholder {
+          text-align: center;
+        }
+      }
+      .profile-subbmit-button {
+        height: 40px;
+        width: 100px;
+        margin-top: 20px;
+        border-radius: 10px;
+        border: solid 1.5px #e63a5a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .profile-subbmit-button:hover {
+        cursor: pointer;
+        background-color: #e63a5a;
+        color: white;
+      }
+    }
+  }
+}
