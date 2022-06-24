@@ -90,6 +90,8 @@ const httpCheckTask = async (req, res) => {
   }).catch((err) => {
     error = true;
   });
+  console.log("Error is true ?");
+  console.log(error);
 
   if (error) {
     shell.exec(`rm -rf ../../../checker_buff/${FOLDER_NAME_USER}`);

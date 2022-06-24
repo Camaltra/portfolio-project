@@ -18,9 +18,25 @@ const getResult = async (tokenString) => {
       "X-RapidAPI-Host": process.env.X_RAPIDAPI_HOST,
     },
   };
-  const response = await axios.request(optionsGetToken);
-  const responseData = response.data.submissions;
-  console.log(responseData);
+  let good = false;
+  let responseData;
+  while (!good) {
+    const response = await axios.request(optionsGetToken);
+    responseData = response.data.submissions;
+    let allSumbissionFinished = true;
+    responseData.forEach((data) => {
+      console.log(data.status.description);
+      if (data.status.description !== "Accepted") {
+        allSumbissionFinished = false;
+      }
+    });
+    if (allSumbissionFinished) {
+      good = true;
+    } else {
+      setTimeout(() => {}, 500);
+    }
+    console.log(good);
+  }
   let i = 2;
   const checkerResult = [];
   responseData.forEach((checked) => {
@@ -63,12 +79,7 @@ const getResponse = async (data) => {
   responseData.forEach((data) => {
     tokenArray.push(data.token);
   });
-  //BERK BERK BERK BERK BERK BERK BERK
-  //This is really bad!!!!!!
-  //NEED TO FIX IT
-  //To wait the judge0 server to proccess the code
   console.log(tokenArray);
-  await new Promise((r) => setTimeout(r, 2000));
   return await getResult(tokenArray.join());
 };
 
