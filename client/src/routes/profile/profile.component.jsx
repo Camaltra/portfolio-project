@@ -1,6 +1,8 @@
 import { useContext, useState, useEffect } from "react";
 import axios from "axios";
+
 import NavBar from "../../components/navbar/navbar.component";
+import { navigateToDashboard } from "../../navigate-functions/navigate-functions";
 import UserProvider from "../../context/user/user.context";
 
 import "./profile.style.scss";
@@ -39,8 +41,6 @@ const Profile = () => {
   };
 
   const updateUserInfos = async () => {
-    console.log(profileInfos);
-
     const options = {
       method: "PUT",
       url: `http://localhost:8000/api/v1/users/${user.id}`,
@@ -50,11 +50,10 @@ const Profile = () => {
       },
       data: profileInfos,
     };
-    console.log(options);
     const result = await axios.request(options);
 
     if (result) {
-      window.open("/dashboard", "_self");
+      navigateToDashboard();
     } else {
       console.log("Error");
     }

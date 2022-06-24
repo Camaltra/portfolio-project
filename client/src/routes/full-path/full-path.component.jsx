@@ -1,9 +1,9 @@
 import { useContext, useState, useEffect } from "react";
 import axios from "axios";
 
-import UserProvider from "../../context/user/user.context";
 import CardTask from "../../components/card-task/card-task.components";
 import NavBar from "../../components/navbar/navbar.component";
+import UserProvider from "../../context/user/user.context";
 
 import "./full-path.style.scss";
 
@@ -15,12 +15,10 @@ const FullPath = () => {
   const [allTasksToShow, setAllTasksToShow] = useState(null);
 
   const selectAllTaskFromSection = (sectionId) => {
-    console.log(allTasks);
     const allSectionTask = allTasks.filter(
       (task) => task.sectionId === sectionId
     );
 
-    console.log(allSectionTask);
     setAllTasksToShow(allSectionTask);
   };
 

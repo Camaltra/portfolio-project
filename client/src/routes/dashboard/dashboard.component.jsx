@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
+
 import NavBar from "../../components/navbar/navbar.component";
+import { navigateToFullPath } from "../../navigate-functions/navigate-functions";
 import UserProvider from "../../context/user/user.context";
 
 import "./dashboard.style.scss";
@@ -15,10 +17,6 @@ const Dashboard = () => {
       setLoading(false);
     }, 250);
   }, []);
-
-  const navigateToFullPath = () => {
-    window.open("/full-path", "_self");
-  };
 
   return loading ? (
     <></>

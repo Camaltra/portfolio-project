@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-
 import axios from "axios";
+
 import ModalTask from "../modal-task/modal-task.component";
 
 import "./card-task.style.scss";
@@ -15,10 +15,7 @@ const CardTask = ({ task, user }) => {
     if (user.tasksDone.includes(task.id) && !done) {
       setDone(true);
     }
-    console.log("renderTask");
-    console.log(user.tasksDone[0]);
-    console.log(task.id);
-  }, [done]);
+  }, [done, user.tasksDone, task.id]);
 
   const closeModal = () => {
     setIsOpen(false);
@@ -30,7 +27,6 @@ const CardTask = ({ task, user }) => {
     numberOfChecks,
     githubUsername
   ) => {
-    console.log(isCurrentlyChecking);
     setIsOpen(true);
     if (!isCurrentlyChecking) {
       setIsCurrentlyChecking(true);
@@ -40,14 +36,12 @@ const CardTask = ({ task, user }) => {
           { withCredentials: true }
         )
         .then((res) => {
-          console.log(res.data);
           let isDone = true;
           res.data.forEach((check) => {
             if (!check.isGood) {
               isDone = false;
             }
           });
-          console.log(isDone);
           if (isDone) {
             setDone(true);
           }
@@ -119,6 +113,7 @@ const CardTask = ({ task, user }) => {
           isDone={done}
         ></ModalTask>
         <div className="card-task-clue-button-container">
+          {/* Create Modal here */}
           <div
             className="card-task-button"
             onClick={() => {

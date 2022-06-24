@@ -1,26 +1,13 @@
-import { Outlet } from "react-router-dom";
-
 import "./navbar.style.scss";
 
-import { ReactComponent as TaskLogo } from "../../assets/lister.svg";
+import {
+  logOut,
+  navigateToProfile,
+  navigateToFullPath,
+  navigateToDashboard,
+} from "../../navigate-functions/navigate-functions";
 
 const NavBar = () => {
-  const logOut = () => {
-    window.open("http://localhost:8000/auth/logout", "_self");
-  };
-
-  const navigateToFullPath = () => {
-    window.open("/full-path", "_self");
-  };
-
-  const navigateToDashboard = () => {
-    window.open("/dashboard", "_self");
-  };
-
-  const navigateToProfile = () => {
-    window.open("/profile", "_self");
-  };
-
   return (
     <div className="nav-bar">
       <h3 className="link-to-pages" onClick={navigateToProfile}>

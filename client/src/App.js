@@ -1,11 +1,10 @@
-import { Routes, Router, Route, Navigate, Outlet } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
 
-import LoginPage from "./routes/login/login.component";
-import FullPath from "./routes/full-path/full-path.component";
 import Dashboard from "./routes/dashboard/dashboard.component";
-import Welcome from "./routes/welcome/welcome.component";
+import FullPath from "./routes/full-path/full-path.component";
+import LoginPage from "./routes/login/login.component";
 import Profile from "./routes/profile/profile.component";
+import Welcome from "./routes/welcome/welcome.component";
 import {
   ProtectedRoute,
   AlreadyLogged,
@@ -54,6 +53,14 @@ function App() {
       />
 
       <Route path="profile" element={<Profile />} />
+      <Route
+        path="*"
+        element={
+          <AlreadyLogged>
+            <LoginPage />
+          </AlreadyLogged>
+        }
+      />
     </Routes>
   );
 }

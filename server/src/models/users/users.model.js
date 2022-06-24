@@ -25,7 +25,6 @@ const updateUserById = async (userId, updatedUser) => {
 };
 
 const addTaskToUserById = async (taskId, userId) => {
-  console.log(taskId, userId);
   const isUpdated = await User.updateOne(
     {
       id: userId,

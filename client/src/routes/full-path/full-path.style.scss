@@ -23,9 +23,7 @@
       align-items: center;
       justify-content: center;
       font-size: 30px;
-      -webkit-user-select: none;
-      -moz-user-select: -moz-none;
-      -ms-user-select: none;
+      user-select: none;
     }
 
     .section-select-button-disable {
@@ -39,9 +37,7 @@
       align-items: center;
       justify-content: center;
       font-size: 30px;
-      -webkit-user-select: none;
-      -moz-user-select: -moz-none;
-      -ms-user-select: none;
+      user-select: none;
 
       p {
         color: rgba(154, 154, 154, 0.8);

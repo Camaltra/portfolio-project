@@ -55,12 +55,14 @@ const httpCheckTask = async (req, res) => {
   );
 
   if (!studentAwnser.substring(0, 19) === "#!/usr/bin/python3") {
+    shell.exec(`rm -rf ../../../checker_buff/${FOLDER_NAME_USER}`);
     return res.status(200).json(checkerResultFromFile);
   } else {
     checkerResultFromFile[1].isGood = true;
   }
 
   if (!fs.existsSync(`../../checker/${SECTION_NAME}/${TASK_NAME}`)) {
+    shell.exec(`rm -rf ../../../checker_buff/${FOLDER_NAME_USER}`);
     return res.status(400).json({ error: "No checker main file found" });
   }
   shell.cd(`../../checker/${SECTION_NAME}/${TASK_NAME}`);
@@ -90,6 +92,7 @@ const httpCheckTask = async (req, res) => {
   });
 
   if (error) {
+    shell.exec(`rm -rf ../../../checker_buff/${FOLDER_NAME_USER}`);
     return res.status(400).json({ error: "Checker got block / bugged" });
   }
 
@@ -97,12 +100,6 @@ const httpCheckTask = async (req, res) => {
     checkerResultFromFile,
     resultFormCheckerCode
   );
-
-  let isSucced = true;
-  for (let i = 0; i < NUMBER_OF_CHECKS; i++) {
-    if (checkerResult[i].isGood === false) isSucced = false;
-  }
-  console.log(isSucced);
 
   shell.exec(`rm -rf ../../../checker_buff/${FOLDER_NAME_USER}`);
 
