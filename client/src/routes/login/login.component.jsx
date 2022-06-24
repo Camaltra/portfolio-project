@@ -1,3 +1,5 @@
+import { navigateToInfo } from "../../navigate-functions/navigate-functions";
+
 import "./login.style.scss";
 
 const LoginPage = () => {
@@ -16,12 +18,7 @@ const LoginPage = () => {
         <div className="login-google-button" onClick={loginWithGoogle}>
           <p>Connect With Google</p>
         </div>
-        <p
-          className="get-info-button"
-          onClick={() => {
-            window.open("/info", "_self");
-          }}
-        >
+        <p className="get-info-button" onClick={navigateToInfo}>
           Get more information about the project
         </p>
       </div>

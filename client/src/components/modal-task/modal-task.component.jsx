@@ -1,9 +1,10 @@
 import ReactDOM from "react-dom";
+
 import CheckCard from "../check-card/check-card.component";
 
 import "./modal-task.style.scss";
 
-const ModalTask = ({ children, open, onClose, onCheck, checkList, isDone }) => {
+const ModalTask = ({ open, onClose, onCheck, checkList, isDone }) => {
   return ReactDOM.createPortal(
     open ? (
       <>

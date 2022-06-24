@@ -1,8 +1,9 @@
-import UserProvider from "../../context/user/user.context";
+import axios from "axios";
 import { useContext, useState, useEffect } from "react";
 import { Navigate } from "react-router";
 
-import axios from "axios";
+import { navigateToDashboard } from "../../navigate-functions/navigate-functions";
+import UserProvider from "../../context/user/user.context";
 
 import "./welcome.style.scss";
 
@@ -31,9 +32,9 @@ const Welcome = () => {
 
   const updateUserInfos = async () => {
     if (userInfos.username === "") {
-      console.log("Please enter a userName");
+      alert("Please enter a userName");
     } else if (userInfos.githubProfile === "") {
-      console.log("Please enter your GithubProfile");
+      alert("Please enter your GithubProfile");
     } else {
       const options = {
         method: "PUT",
@@ -44,11 +45,10 @@ const Welcome = () => {
         },
         data: userInfos,
       };
-      console.log(options);
       const result = await axios.request(options);
 
       if (result) {
-        window.open("/dashboard", "_self");
+        navigateToDashboard();
       } else {
         console.log("Error");
       }
