@@ -2,8 +2,6 @@ const shell = require("shelljs");
 const fs = require("fs");
 const path = require("path");
 
-const axios = require("axios");
-
 const { sections, tasks } = require("../../data/matches.data");
 const { getResponse } = require("../../service/judge0.service");
 
@@ -37,9 +35,7 @@ const httpCheckTask = async (req, res) => {
   shell.cd(path.join(__dirname, "..", "..", "checker_buff"));
   shell.exec(`mkdir ${FOLDER_NAME_USER}`);
   shell.cd(`${FOLDER_NAME_USER}`);
-  shell.exec(
-    `git clone https://github.com/${GITHUB_NAME}/HTW-interview_trainning.git`
-  );
+  shell.exec(`git clone https://github.com/${GITHUB_NAME}/${REPO_NAME}.git`);
 
   if (
     !fs.existsSync(`HTW-interview_trainning/${SECTION_NAME}/${TASK_NAME}.py`)
