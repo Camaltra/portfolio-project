@@ -40,10 +40,8 @@ const httpGetCheckRequest = async (req, res) => {
     if (response[i].isGood === false) isSucced = false;
   }
 
-  console.log(isSucced);
   if (isSucced) {
     const done = await addTaskToUserById(TASK_ID, req.user);
-    console.log(done);
   }
 
   // TO DO IN THE SERVER CHECKER DIRECTLY

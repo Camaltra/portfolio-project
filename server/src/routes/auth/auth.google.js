@@ -19,9 +19,7 @@ auth.get(
     successRedirect: "http://localhost:3000/dashboard",
     session: true,
   }),
-  (req, res) => {
-    console.log("Google call us back");
-  }
+  (req, res) => {}
 );
 
 auth.get("/logout", (req, res) => {
