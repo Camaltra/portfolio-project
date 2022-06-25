@@ -24,6 +24,7 @@ const httpCheckTask = async (req, res) => {
   const TASK_NAME = tasks[TASK_ID];
 
   if (!FOLDER_NAME_USER || !SECTION_NAME || !TASK_NAME) {
+    console.log("heyyy");
     return res.status(400).json({ error: "Bad body params" });
   }
 

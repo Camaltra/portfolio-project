@@ -10,7 +10,10 @@ def twoSumChecker(nums, target):
 nums = [4, 4, 5, 9, 2, 2]
 target = 6
 
-if (twoSumChecker(nums, target) == twoSum(nums, target)):
-    print('OK')
-else:
-    print('NotOK')
+try:
+    if (twoSumChecker(nums, target) == twoSum(nums, target)):
+        print('OK')
+    else:
+        print('NotOK')
+except Exception:
+    print('NotOk')
