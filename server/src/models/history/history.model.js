@@ -13,6 +13,10 @@ const getTheLastCheckId = async () => {
   return latestCheck.checkId;
 };
 
+const getAllHistory = async () => {
+  return await History.find({}, { _id: 0, __v: 0 }).sort({ checkId: -1 });
+};
+
 const addNewCheckToHistory = async (newCheck) => {
   const checkId = (await getTheLastCheckId()) + 1;
   const user = await getUserById(newCheck.userId);
@@ -32,5 +36,6 @@ const addNewCheckToHistory = async (newCheck) => {
 };
 
 module.exports = {
+  getAllHistory,
   addNewCheckToHistory,
 };
