@@ -83,6 +83,7 @@ const getResponse = async (data) => {
     tokenArray.push(data.token);
   });
   console.log(tokenArray);
+  setTimeout(() => {}, 1000);
   return await getResult(tokenArray.join());
 };
 
