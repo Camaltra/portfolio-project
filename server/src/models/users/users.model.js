@@ -31,6 +31,10 @@ const updateUserById = async (userId, updatedUser) => {
 };
 
 const addTaskToUserById = async (taskId, userId) => {
+  const user = await getUserById(userId);
+  if (user.tasksDone.includes(taskId)) {
+    return true;
+  }
   const isUpdated = await User.updateOne(
     {
       id: userId,
@@ -42,7 +46,7 @@ const addTaskToUserById = async (taskId, userId) => {
     console.error(err);
   });
 
-  return isUpdated;
+  return isUpdated.modifiedCount;
 };
 
 module.exports = {

@@ -56,11 +56,10 @@ const httpGetCheckRequest = async (req, res) => {
 
   if (isSucced) {
     const done = await addTaskToUserById(TASK_ID, req.user);
+    if (!done)
+      console.error(`${req.user}: didn't add ${TASK_ID} into the done tasks`);
   }
 
-  // TO DO IN THE SERVER CHECKER DIRECTLY
-  //Insert the response with all token into the history database, whatever the response is to allow admin o see what heppened
-  //NOT ON MVP
   return res.status(200).json(response);
 };
 
