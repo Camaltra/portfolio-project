@@ -1,5 +1,7 @@
 # Hippo'nterview
 
+Version 1.0.1
+
 ## Description
 
 The main goal of Hippo'nterview is to give to all Holberton School's students a tool to be ready for cooding interview.
