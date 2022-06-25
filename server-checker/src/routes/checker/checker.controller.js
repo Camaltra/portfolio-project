@@ -40,6 +40,7 @@ const httpCheckTask = async (req, res) => {
   if (
     !fs.existsSync(`HTW-interview_trainning/${SECTION_NAME}/${TASK_NAME}.py`)
   ) {
+    shell.exec(`rm -rf ../../../checker_buff/${FOLDER_NAME_USER}`);
     return res.status(200).json(checkerResultFromFile);
   } else {
     checkerResultFromFile[0].isGood = true;
