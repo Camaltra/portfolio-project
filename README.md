@@ -51,6 +51,8 @@ All the architecture is based on a MVC model, and use differents externes tools,
 
 Not bugs know from the API V1. If you discover any bug, feel free to reach me, so I'll find a way to fix it.
 
+Bug on the front-end part, Modal of checking tasks not really good align on the center-center of the page
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
