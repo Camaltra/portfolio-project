@@ -1,6 +1,7 @@
 const axios = require("axios");
 
 const { addTaskToUserById } = require("../../models/users/users.model");
+const { addNewCheckToHistory } = require("../../models/history/history.model");
 
 const httpGetCheckRequest = async (req, res) => {
   const GITHUB_NAME = req.query.github_username;
@@ -34,6 +35,19 @@ const httpGetCheckRequest = async (req, res) => {
   if (statusRes === 400) {
     return res.status(400).json(response);
   }
+
+  const newCheck = {
+    userId: req.user,
+    taskId: TASK_ID,
+    sectionId: SECTION_ID,
+    checkDetails: response,
+    checkedTime: Date.now(),
+  };
+
+  await addNewCheckToHistory(newCheck).catch((err) => {
+    console.log("Error to save into the database: History");
+    console.log(`${req.user}: error`);
+  });
 
   let isSucced = true;
   for (let i = 0; i < NUMBER_OF_CHECKS; i++) {

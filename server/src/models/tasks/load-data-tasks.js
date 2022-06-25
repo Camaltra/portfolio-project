@@ -108,7 +108,6 @@ const allTasks = [
 
 const populateAllTasks = async () => {
   const taskFormTheDataBase = await getAllTasks();
-  console.log(taskFormTheDataBase);
   if (taskFormTheDataBase.length !== 0) {
     console.log("All tasks are already populate");
     return;
