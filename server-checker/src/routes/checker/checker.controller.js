@@ -24,7 +24,6 @@ const httpCheckTask = async (req, res) => {
   const TASK_NAME = tasks[TASK_ID];
 
   if (!FOLDER_NAME_USER || !SECTION_NAME || !TASK_NAME) {
-    console.log("heyyy");
     return res.status(400).json({ error: "Bad body params" });
   }
 
@@ -41,6 +40,7 @@ const httpCheckTask = async (req, res) => {
   if (
     !fs.existsSync(`HTW-interview_trainning/${SECTION_NAME}/${TASK_NAME}.py`)
   ) {
+    shell.exec(`rm -rf ../../../checker_buff/${FOLDER_NAME_USER}`);
     return res.status(200).json(checkerResultFromFile);
   } else {
     checkerResultFromFile[0].isGood = true;
