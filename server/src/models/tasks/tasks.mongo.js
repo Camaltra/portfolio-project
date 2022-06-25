@@ -45,6 +45,18 @@ const taskSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  githubRepo: {
+    type: String,
+    required: true,
+  },
+  directoryName: {
+    type: String,
+    required: true,
+  },
+  fileName: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("Task", taskSchema);

@@ -26,7 +26,10 @@ const getResult = async (tokenString) => {
     let allSumbissionFinished = true;
     responseData.forEach((data) => {
       console.log(data.status.description);
-      if (data.status.description !== "Accepted") {
+      if (
+        data.status.description === "In Queue" ||
+        data.status.description === "Processing"
+      ) {
         allSumbissionFinished = false;
       }
     });
