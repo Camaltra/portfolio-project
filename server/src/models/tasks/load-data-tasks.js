@@ -29,14 +29,14 @@ const allTasks = [
     taskPrototype: "def containsDuplicate(nums):",
     exemple: "Input nums = [2, 3, 4, 1, 2]\n Output: true",
     numberOfChecks: 6,
-    clueOne: "How will you do to check it without programing ?",
+    clueOne: "What about sorting ?",
     clueTwo: "Did you think about hash table ?",
     optimizeSolution: "The best solution is O(n) runtime | O(n) space",
     edgeCases:
       "1 <= len(nums) <= 10<sup>5</sup>\n10<sup>9</sup> <= nums[i] <= 10<sup>9</sup>",
     githubRepo: "HTW-interview_trainning",
     directoryName: "0x00-array_string",
-    fileName: "1-contains_duplicate",
+    fileName: "1-contains_duplicate.py",
   },
   // {
   //   id: "001",

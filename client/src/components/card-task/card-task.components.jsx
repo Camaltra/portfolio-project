@@ -88,6 +88,19 @@ const CardTask = ({ task, user }) => {
             ></p>
           </div>
         </div>
+        <div className="card-tasks-files-infos">
+          <div className="card-tasks-files-infos-container">
+            <p>
+              Github Repo: <span>{task.githubRepo}</span>
+            </p>
+            <p>
+              Directory: <span>{task.directoryName}</span>
+            </p>
+            <p>
+              File: <span>{task.fileName}</span>
+            </p>
+          </div>
+        </div>
       </div>
       <div className="card-task-button-container">
         <div className="card-task-check-button-container">
