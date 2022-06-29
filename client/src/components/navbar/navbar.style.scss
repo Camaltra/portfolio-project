@@ -40,13 +40,22 @@
   }
 
   .link-to-pages:hover,
-  .logout:hover {
+  .logout:hover,
+  .admin-controller:hover {
     text-decoration: underline;
   }
 
   .link-to-pages:hover,
   .logout:hover,
-  .dashboard-header h1:hover {
+  .dashboard-header h1:hover,
+  .admin-controller:hover {
     cursor: pointer;
+  }
+
+  .admin-controller {
+    font-size: 17px;
+    position: absolute;
+    right: 20px;
+    margin-top: 10px;
   }
 }
