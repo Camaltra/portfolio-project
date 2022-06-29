@@ -5,6 +5,7 @@ const CheckCardHistory = ({ dataCheck }) => {
     <div className="check-card-history-container">
       <div className="check-card-history-user-info">
         <h1>Check ID: {dataCheck.checkId}</h1>
+        <h1>Task ID: {dataCheck.taskId}</h1>
         <h1>Username: {dataCheck.userUsername}</h1>
         <div className="check-card-history-date">
           <h1>
