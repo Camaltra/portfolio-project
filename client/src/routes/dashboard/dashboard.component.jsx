@@ -2,7 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 
 import NavBar from "../../components/navbar/navbar.component";
-import { navigateToFullPath } from "../../navigate-functions/navigate-functions";
+import {
+  navigateToFullPath,
+  navigateToRandomize,
+} from "../../navigate-functions/navigate-functions";
 import UserProvider from "../../context/user/user.context";
 
 import "./dashboard.style.scss";
@@ -40,7 +43,12 @@ const Dashboard = () => {
               >
                 Full-Path
               </div>
-              <div className="dashboard-redirection-button">Randomize</div>
+              <div
+                className="dashboard-redirection-button"
+                onClick={navigateToRandomize}
+              >
+                Randomize
+              </div>
             </div>
           </div>
         </div>
