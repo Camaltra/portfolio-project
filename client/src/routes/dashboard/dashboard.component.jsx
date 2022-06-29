@@ -53,7 +53,7 @@ const Dashboard = () => {
           </div>
         </div>
       ) : (
-        <Navigate to="/welcome" />
+        <>{user ? <Navigate to="/welcome" /> : <Navigate to="/" />}</>
       )}
     </>
   );

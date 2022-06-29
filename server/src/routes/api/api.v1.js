@@ -11,9 +11,13 @@ const api = express.Router();
 
 async function checkIsAdmin(req, res, next) {
   const user = await getUserById(req.user);
-  if (user !== {} && user.admin) {
-    next();
-  } else {
+  try {
+    if (user !== {} && user.admin) {
+      next();
+    } else {
+      return res.status(400).json({ error: "Can't access to history" });
+    }
+  } catch {
     return res.status(400).json({ error: "Can't access to history" });
   }
 }
