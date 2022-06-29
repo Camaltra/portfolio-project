@@ -9,6 +9,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 60%;
+    position: absolute;
+    top: 160px;
   }
 
   .randomize-button {
@@ -20,6 +23,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    bottom: 110px;
   }
 
   .randomize-button:hover {
