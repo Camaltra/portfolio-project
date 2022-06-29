@@ -1,0 +1,36 @@
+.check-card-history-container {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 600px;
+  width: 500px;
+  overflow: scroll;
+  border: solid 0.3px #d4cfcf;
+  margin: 20px 30px 20px 30px;
+
+  .check-card-history-date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .check-card-history-user-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .check-card-history-checks-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .check-card-history-check-check {
+      display: flex;
+    }
+  }
+}

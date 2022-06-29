@@ -63,7 +63,7 @@ const Profile = () => {
     <div></div>
   ) : (
     <div className="profile-container">
-      <NavBar />
+      <NavBar isUserAdmin={user.admin} />
       <div className="profile-text">
         <h1>Need to change your</h1>
         <h1 className="profile-title">Informations ?</h1>

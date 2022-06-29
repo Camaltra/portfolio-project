@@ -24,7 +24,7 @@ const Dashboard = () => {
     <>
       {user.githubProfile ? (
         <div>
-          <NavBar />
+          <NavBar isUserAdmin={user.admin} />
           <div className="dashboard-container">
             <div className="dashboard-greeting">
               <span>Welcome</span> {user.username},

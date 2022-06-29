@@ -40,7 +40,7 @@ const FullPath = () => {
     <div></div>
   ) : (
     <>
-      <NavBar />
+      <NavBar isUserAdmin={user.admin} />
       <div className="full-path-container">
         <div className="section-select">
           {/* TO MAKE A COMPONENT */}
