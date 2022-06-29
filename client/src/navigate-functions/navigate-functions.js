@@ -17,3 +17,11 @@ export const navigateToProfile = () => {
 export const navigateToInfo = () => {
   window.open("/info", "_self");
 };
+
+export const navigateToRandomize = () => {
+  window.open("/randomize", "_self");
+};
+
+export const navigateToAdminController = () => {
+  window.open("/admin", "_self");
+};

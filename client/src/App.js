@@ -1,9 +1,11 @@
 import { Routes, Route } from "react-router-dom";
 
+import AdminDashboard from "./routes/admin/admin.component";
 import Dashboard from "./routes/dashboard/dashboard.component";
 import FullPath from "./routes/full-path/full-path.component";
 import LoginPage from "./routes/login/login.component";
 import Profile from "./routes/profile/profile.component";
+import Randomize from "./routes/randomize/randomize.component";
 import Welcome from "./routes/welcome/welcome.component";
 import {
   ProtectedRoute,
@@ -52,7 +54,6 @@ function App() {
         }
       />
 
-      <Route path="profile" element={<Profile />} />
       <Route
         path="*"
         element={
@@ -61,6 +62,24 @@ function App() {
           </AlreadyLogged>
         }
       />
+
+      <Route
+        path="profile"
+        element={
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="randomize"
+        element={
+          <ProtectedRoute>
+            <Randomize />
+          </ProtectedRoute>
+        }
+      />
+      <Route path="admin" element={<AdminDashboard />} />
     </Routes>
   );
 }

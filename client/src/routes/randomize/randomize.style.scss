@@ -1,0 +1,35 @@
+.randomize-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+
+  .randomize-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    position: absolute;
+    top: 160px;
+  }
+
+  .randomize-button {
+    height: 40px;
+    width: 200px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: solid 1.5px #e63a5a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 110px;
+  }
+
+  .randomize-button:hover {
+    cursor: pointer;
+    background-color: #e63a5a;
+    color: white;
+  }
+}

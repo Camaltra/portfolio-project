@@ -3,6 +3,7 @@ const {
   addNewTask,
   getAllTasks,
   getTaskById,
+  getRandomTask,
 } = require("../../models/tasks/tasks.model");
 
 const httpGetAllTasks = async (req, res) => {
@@ -38,8 +39,16 @@ const httpGetTaskById = async (req, res) => {
   return res.status(200).json(task);
 };
 
+const httpGetRandomTask = async (req, res) => {
+  const randomTask = await getRandomTask();
+  if (!randomTask)
+    return res.status(400).json({ error: "Can't access to random task" });
+  return res.status(200).json(randomTask);
+};
+
 module.exports = {
   httpGetAllTasks,
   httpAddNewTask,
   httpGetTaskById,
+  httpGetRandomTask,
 };

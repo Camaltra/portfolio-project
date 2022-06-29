@@ -1,7 +1,9 @@
 const User = require("./users.mongo");
 
 const getAllUsers = async () => {
-  return await User.find({}, { _id: 0, __v: 0 });
+  return await User.find({}, { _id: 0, __v: 0 }).catch((err) => {
+    console.error(err);
+  });
 };
 
 const getUserById = async (userId) => {
@@ -10,7 +12,9 @@ const getUserById = async (userId) => {
       id: userId,
     },
     { _id: 0, __v: 0 }
-  );
+  ).catch((err) => {
+    console.error(err);
+  });
 };
 
 const updateUserById = async (userId, updatedUser) => {
@@ -19,12 +23,18 @@ const updateUserById = async (userId, updatedUser) => {
       id: userId,
     },
     updatedUser
-  );
+  ).catch((err) => {
+    console.error(err);
+  });
 
   return isUpdated;
 };
 
 const addTaskToUserById = async (taskId, userId) => {
+  const user = await getUserById(userId);
+  if (user.tasksDone.includes(taskId)) {
+    return true;
+  }
   const isUpdated = await User.updateOne(
     {
       id: userId,
@@ -32,9 +42,11 @@ const addTaskToUserById = async (taskId, userId) => {
     {
       $push: { tasksDone: taskId },
     }
-  );
+  ).catch((err) => {
+    console.error(err);
+  });
 
-  return isUpdated;
+  return isUpdated.modifiedCount;
 };
 
 module.exports = {
