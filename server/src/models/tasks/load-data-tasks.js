@@ -92,6 +92,25 @@ const allTasks = [
     directoryName: "0x00-array_string",
     fileName: "4-valid_parentheses",
   },
+  {
+    id: "005",
+    sectionId: "0",
+    title: "Maximum Sum Subarray",
+    description:
+      "Given an array of numbers <span>nums</span>, find the continuous subarray which have the largest sum, and return it\nThe subarray must contain at least one number",
+    taskPrototype: "def maxSumSubarray(nums):",
+    exemple: "Input: nums=[1, 2, 3, -2, 3, 1]\nOutput: 6",
+    numberOfChecks: 7,
+    clueOne: "Try the brute force method, how do you can involve it ?",
+    clueTwo:
+      "There is a famous algorythme in the wild that fit perfectly to the problem",
+    optimizeSolution: "The optimal solution is O(n) runtime | O(1) space",
+    edgeCases:
+      "1 <= len(nums) <= 10<sup>5</sup>\n-10<sup>4</sup> <= nums[i] <= 10<sup>4</sup>",
+    githubRepo: "HTW-interview_trainning",
+    directoryName: "0x00-array_string",
+    fileName: "5-max_sum_subarray",
+  },
   // {
   //   id: "001",
   //   sectionId: "1",
