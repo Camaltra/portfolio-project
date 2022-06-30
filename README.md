@@ -1,5 +1,7 @@
 # Hippo'nterview
 
+Version 1.1.1
+
 ## Description
 
 The main goal of Hippo'nterview is to give to all Holberton School's students a tool to be ready for cooding interview.
@@ -48,6 +50,8 @@ All the architecture is based on a MVC model, and use differents externes tools,
 ## Bugs
 
 Not bugs know from the API V1. If you discover any bug, feel free to reach me, so I'll find a way to fix it.
+
+Bug on the front-end part, Modal of checking tasks not really good align on the center-center of the page
 
 ## Contributing
 
