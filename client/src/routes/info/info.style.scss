@@ -1,0 +1,368 @@
+.info-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f9f9f9;
+
+  .border-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1000px;
+    margin-left: -300px;
+  }
+
+  .border-right {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    height: 1000px;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .border-right,
+    .border-top {
+      animation: display 2s ease-out;
+      display: none;
+    }
+  }
+
+  .info-header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 1080px;
+    img {
+      margin-top: 10px;
+      width: 650px;
+    }
+
+    @media (max-width: 660px) {
+      img {
+        width: 550px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      img {
+        width: 480px;
+      }
+    }
+
+    @media (max-width: 490px) {
+      img {
+        width: 290px;
+      }
+    }
+
+    .info-header-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 60%;
+      h1 {
+        margin-top: 20px;
+      }
+
+      .info-title-left {
+        margin-right: 200px;
+        margin-left: 20px;
+      }
+      .info-title-right {
+        margin-left: 200px;
+
+        span {
+          color: #e63a5a;
+          font-weight: bold;
+        }
+      }
+
+      .info-header-logo {
+        margin-bottom: 60px;
+        text-align: center;
+        color: #e63a5a;
+        font-family: "Dancing Script", cursive;
+        font-size: 120px;
+      }
+
+      @media (max-width: 660px) {
+        .info-header-logo {
+          font-size: 100px;
+        }
+      }
+
+      @media (max-width: 540px) {
+        .info-header-logo {
+          font-size: 90px;
+        }
+      }
+
+      @media (max-width: 490px) {
+        .info-header-logo {
+          font-size: 60px;
+        }
+      }
+
+      .info-button {
+        height: 50px;
+        width: 200px;
+        border: 2px solid;
+        border-radius: 25px;
+        border-color: #e63a5a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        margin: 60px 90px 40px 90px;
+      }
+
+      .info-button:hover {
+        cursor: pointer;
+        background-color: #e63a5a;
+        color: white;
+      }
+    }
+
+    .info-navbar-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .info-navbar-ul {
+        display: flex;
+
+        li {
+          list-style: none;
+          margin: 0px 20px 0px 20px;
+          font-size: 25px;
+
+          a {
+            text-decoration: none;
+            color: black;
+          }
+
+          a:hover {
+            cursor: pointer;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  .dot-line-separator {
+    margin-top: 100px;
+    margin-bottom: -20px;
+  }
+
+  .info-section-container {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+
+    .border-right-project {
+      position: absolute;
+      right: 0px;
+      top: 100px;
+      height: 1400px;
+    }
+
+    .border-left-project {
+      position: absolute;
+      left: 0px;
+      bottom: -90px;
+      height: 1400px;
+    }
+
+    @media (max-width: 400px) {
+      .border-right-project {
+        top: 140px;
+      }
+    }
+
+    .info-feature {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin: 50px 0px 50px 0px;
+      background-color: #ffffff;
+      padding: 20px;
+      width: 80%;
+      max-width: 1000px;
+      border: solid 3px #e63a5a;
+      border-radius: 30px;
+      position: relative;
+      h1 {
+        color: #e63a5a;
+        font-size: 40px;
+        margin-bottom: 20px;
+      }
+
+      p {
+        margin-top: 30px;
+        font-weight: 700;
+        font-size: 20px;
+        text-align: center;
+      }
+
+      img {
+        width: 90%;
+        padding: 10px;
+
+        border: solid 2px #d4cfcf;
+        border-radius: 30px;
+      }
+    }
+    .info-section-title {
+      margin-top: 30px;
+      margin-bottom: 60px;
+      text-align: center;
+      color: #e63a5a;
+      font-family: "Dancing Script", cursive;
+      font-size: 80px;
+    }
+
+    .about-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80%;
+      .project-about-card {
+        width: 40%;
+        min-width: 472px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-right: 5%;
+        text-align: center;
+        height: 500px;
+        border: solid 3px #e63a5a;
+        border-radius: 30px;
+
+        .info-logo-project {
+          height: 30px;
+          color: #e63a5a;
+        }
+
+        h1 {
+          color: #e63a5a;
+          font-size: 40px;
+          margin-bottom: 20px;
+        }
+
+        p {
+          margin: 20px 30px 30px 20px;
+        }
+      }
+      .team-github-cards {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-width: 472px;
+        .team-card {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          margin-right: 5%;
+          text-align: center;
+          height: 300px;
+          border: solid 3px #e63a5a;
+          border-radius: 30px;
+          position: relative;
+
+          .social-logo {
+            height: 60px;
+            margin-left: 5px;
+            margin-right: 5px;
+          }
+
+          .social-logo:hover {
+            cursor: pointer;
+          }
+
+          h1 {
+            color: #e63a5a;
+            font-size: 40px;
+            margin-bottom: 20px;
+            position: absolute;
+            top: 10px;
+          }
+
+          h2 {
+            margin-top: 20px;
+          }
+
+          h3 {
+            margin-top: 20px;
+            margin-bottom: 15px;
+          }
+        }
+        .github-title {
+          margin-top: 90px;
+          text-align: center;
+          color: #e63a5a;
+          font-family: "Dancing Script", cursive;
+          font-size: 70px;
+          border-radius: 20px;
+          padding: 10px;
+          border: 3px #e63a5a solid;
+        }
+
+        .github-title:hover {
+          cursor: pointer;
+          background-color: #e63a5a;
+          color: white;
+        }
+
+        @media (max-width: 570px) {
+          .github-title {
+            font-size: 50px;
+          }
+        }
+
+        @media (max-width: 540px) {
+          .github-title {
+            font-size: 40px;
+          }
+        }
+      }
+    }
+    @media (max-width: 1000px) {
+      .about-container {
+        flex-direction: column;
+        width: 80%;
+
+        .team-github-cards {
+          width: 100%;
+          margin-top: 20px;
+          min-width: 0px;
+        }
+
+        .project-about-card {
+          width: 100%;
+          margin-left: 0px;
+          margin-bottom: 20px;
+          height: 100%;
+          min-width: 0px;
+
+          p {
+            margin: 20px 30px 30px 20px;
+          }
+        }
+      }
+    }
+  }
+}
