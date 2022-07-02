@@ -18,6 +18,7 @@ const AdminDashboard = () => {
         withCredentials: true,
       })
       .then((res) => {
+        console.log(res.data[0].checkDetails[0]);
         setHistory(res.data);
         setIsAdmin(true);
         setIsLoading(true);
