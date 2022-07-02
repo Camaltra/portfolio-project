@@ -40,7 +40,8 @@ const httpCheckTask = async (req, res) => {
   if (
     !fs.existsSync(`HTW-interview_trainning/${SECTION_NAME}/${TASK_NAME}.py`)
   ) {
-    shell.exec(`rm -rf ../../../checker_buff/${FOLDER_NAME_USER}`);
+    shell.cd("..");
+    shell.exec(`rm -rf ${FOLDER_NAME_USER}`);
     return res.status(200).json(checkerResultFromFile);
   } else {
     checkerResultFromFile[0].isGood = true;
@@ -52,14 +53,16 @@ const httpCheckTask = async (req, res) => {
   );
 
   if (!studentAwnser.substring(0, 19) === "#!/usr/bin/python3") {
-    shell.exec(`rm -rf ../../../checker_buff/${FOLDER_NAME_USER}`);
+    shell.cd("..");
+    shell.exec(`rm -rf ${FOLDER_NAME_USER}`);
     return res.status(200).json(checkerResultFromFile);
   } else {
     checkerResultFromFile[1].isGood = true;
   }
 
   if (!fs.existsSync(`../../checker/${SECTION_NAME}/${TASK_NAME}`)) {
-    shell.exec(`rm -rf ../../../checker_buff/${FOLDER_NAME_USER}`);
+    shell.cd("..");
+    shell.exec(`rm -rf ${FOLDER_NAME_USER}`);
     return res.status(400).json({ error: "No checker main file found" });
   }
   shell.cd(`../../checker/${SECTION_NAME}/${TASK_NAME}`);
