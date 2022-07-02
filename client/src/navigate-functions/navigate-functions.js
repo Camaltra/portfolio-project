@@ -25,3 +25,19 @@ export const navigateToRandomize = () => {
 export const navigateToAdminController = () => {
   window.open("/admin", "_self");
 };
+
+export const navigateToLoginPage = () => {
+  window.open("/", "_self");
+};
+
+export const navigateToLinkedin = () => {
+  window.open("https://www.linkedin.com/in/mickael-boillaud/");
+};
+
+export const navigateToGithub = () => {
+  window.open("https://github.com/Camaltra");
+};
+
+export const navigateToGithubProjectPage = () => {
+  window.open("https://github.com/Camaltra/portfolio-project");
+};

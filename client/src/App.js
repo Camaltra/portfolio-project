@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import AdminDashboard from "./routes/admin/admin.component";
 import Dashboard from "./routes/dashboard/dashboard.component";
 import FullPath from "./routes/full-path/full-path.component";
+import Info from "./routes/info/info.component";
 import LoginPage from "./routes/login/login.component";
 import Profile from "./routes/profile/profile.component";
 import Randomize from "./routes/randomize/randomize.component";
@@ -11,10 +12,6 @@ import {
   ProtectedRoute,
   AlreadyLogged,
 } from "./routes/security/security.routes";
-
-const Info = () => {
-  return <h1>This is some information about the project</h1>;
-};
 
 function App() {
   return (
