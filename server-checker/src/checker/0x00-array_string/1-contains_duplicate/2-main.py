@@ -11,9 +11,11 @@ def containsDuplicateChecker(nums):
 nums = [1, 1, 1, 1, 1, 1]
 
 try:
-    if (containsDuplicateChecker(nums) == containsDuplicate(nums)):
+    resultStudent = containsDuplicate(nums)
+    resultChecker = containsDuplicateChecker(nums)
+    if (resultChecker == resultStudent):
         print('OK')
     else:
-        print('NotOK')
+        print(f'Got: {resultStudent} Expected: {resultChecker}')
 except Exception:
-    print('NotOK')
+    print('Function not found | Error typo or return in the function')

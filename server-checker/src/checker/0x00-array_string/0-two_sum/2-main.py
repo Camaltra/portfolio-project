@@ -7,13 +7,15 @@ def twoSumChecker(nums, target):
             return [i, dictOfNum[diff]]
         dictOfNum[nums[i]] = i
 
-nums = [4, 4, 5, 9, 10]
+nums = [4, 4, 5, 9, 10, 0]
 target = 4
 
 try:
-    if (twoSumChecker(nums, target) == twoSum(nums, target)):
+    resultStudent = twoSum(nums, target)
+    resultChecker = twoSumChecker(nums, target)
+    if (resultChecker == resultStudent):
         print('OK')
     else:
-        print('NotOK')
+        print(f'Got: {resultStudent} Expected: {resultChecker}')
 except Exception:
-    print('NotOk')
+    print('Function not found | Error typo or return in the function')

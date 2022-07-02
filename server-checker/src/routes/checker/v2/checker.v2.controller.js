@@ -2,14 +2,14 @@ const shell = require("shelljs");
 const fs = require("fs");
 const path = require("path");
 
-const { sections, tasks } = require("../../data/matches.data");
-const { getResponse } = require("../../service/judge0.service");
+const { sections, tasks } = require("../../../data/matches.data");
+const { getResponse } = require("../../../service/v2/judge0.v2.service");
 
 const REPO_NAME = "HTW-interview_trainning";
 
 require("dotenv").config();
 
-const httpCheckTask = async (req, res) => {
+const httpCheckTaskV2 = async (req, res) => {
   const GITHUB_NAME = String(req.body.github_username);
   const TASK_ID = String(req.body.task_id);
   const SECTION_ID = String(req.body.section_id);
@@ -27,24 +27,31 @@ const httpCheckTask = async (req, res) => {
     return res.status(400).json({ error: "Bad body params" });
   }
 
-  const checkerResultFromFile = [];
+  const checkerResult = [];
+  let success = false;
   for (let i = 0; i < NUMBER_OF_CHECKS; i++) {
-    checkerResultFromFile.push({ checkId: i, isGood: false });
+    checkerResult.push({
+      checkId: i,
+      isGood: false,
+      output: "Previous check failed",
+    });
   }
+  const checkerResultBatch = { success, checkerResult };
 
-  shell.cd(path.join(__dirname, "..", "..", "checker_buff"));
+  shell.cd(path.join(__dirname, "..", "..", "..", "checker_buff"));
   shell.exec(`mkdir ${FOLDER_NAME_USER}`);
   shell.cd(`${FOLDER_NAME_USER}`);
   shell.exec(`git clone https://github.com/${GITHUB_NAME}/${REPO_NAME}.git`);
-
   if (
     !fs.existsSync(`HTW-interview_trainning/${SECTION_NAME}/${TASK_NAME}.py`)
   ) {
     shell.cd("..");
     shell.exec(`rm -rf ${FOLDER_NAME_USER}`);
-    return res.status(200).json(checkerResultFromFile);
+    checkerResultBatch.checkerResult[0].output = "File not found";
+    return res.status(200).json(checkerResultBatch);
   } else {
-    checkerResultFromFile[0].isGood = true;
+    checkerResultBatch.checkerResult[0].isGood = true;
+    checkerResultBatch.checkerResult[0].output = "OK\n";
   }
 
   const studentAwnser = fs.readFileSync(
@@ -55,9 +62,11 @@ const httpCheckTask = async (req, res) => {
   if (!studentAwnser.substring(0, 19) === "#!/usr/bin/python3") {
     shell.cd("..");
     shell.exec(`rm -rf ${FOLDER_NAME_USER}`);
-    return res.status(200).json(checkerResultFromFile);
+    checkerResultBatch.checkerResult[1].output = "No Header Found";
+    return res.status(200).json(checkerResultBatch);
   } else {
-    checkerResultFromFile[1].isGood = true;
+    checkerResultBatch.checkerResult[1].isGood = true;
+    checkerResultBatch.checkerResult[1].output = "OK\n";
   }
 
   if (!fs.existsSync(`../../checker/${SECTION_NAME}/${TASK_NAME}`)) {
@@ -96,27 +105,20 @@ const httpCheckTask = async (req, res) => {
     return res.status(400).json({ error: "Checker got block / bugged" });
   }
 
-  const checkerResult = mergeTwoDictForChecker(
-    checkerResultFromFile,
-    resultFormCheckerCode
-  );
+  success = true;
+  for (let i = 0; i < NUMBER_OF_CHECKS; i++) {
+    if (i >= 2)
+      checkerResultBatch.checkerResult[i] = resultFormCheckerCode[i - 2];
+    if (!checkerResultBatch.checkerResult[i].isGood) success = false;
+  }
+
+  if (success) checkerResultBatch.success = true;
 
   shell.exec(`rm -rf ../../../checker_buff/${FOLDER_NAME_USER}`);
 
-  res.status(200).json(checkerResult);
-};
-
-const mergeTwoDictForChecker = (dictSyntaxe, dictResultFromChecker) => {
-  const finalResultChecker = [];
-  for (let i = 0; i < 2; i++) {
-    finalResultChecker.push(dictSyntaxe[i]);
-  }
-  for (let i = 0; i < dictResultFromChecker.length; i++) {
-    finalResultChecker.push(dictResultFromChecker[i]);
-  }
-  return finalResultChecker;
+  res.status(200).json(checkerResultBatch);
 };
 
 module.exports = {
-  httpCheckTask,
+  httpCheckTaskV2,
 };
