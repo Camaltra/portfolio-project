@@ -20,9 +20,11 @@ str1 = "holberton"
 str2 = "ntoerlhob"
 
 try:
-    if (isAnagramChecker(str1, str2) == isAnagram(str1, str2)):
+    resultStudent = isAnagram(str1, str2)
+    resultChecker = isAnagramChecker(str1, str2)
+    if (resultChecker == resultStudent):
         print('OK')
     else:
-        print("NotOK")
+        print(f'Got: {resultStudent} Expected: {resultChecker}')
 except Exception:
-    print('NotOK')
+    print('Function not found | Error typo or return in the function')

@@ -36,16 +36,8 @@ const CardTask = ({ task, user }) => {
           { withCredentials: true }
         )
         .then((res) => {
-          let isDone = true;
-          res.data.forEach((check) => {
-            if (!check.isGood) {
-              isDone = false;
-            }
-          });
-          if (isDone) {
-            setDone(true);
-          }
-          setCheckList(res.data);
+          if (res.data.success) setDone(true);
+          setCheckList(res.data.checkerResult);
         })
         .catch((err) => {
           console.log(err);

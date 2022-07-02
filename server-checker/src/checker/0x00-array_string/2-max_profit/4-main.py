@@ -15,9 +15,11 @@ def maxProfitChecker(prices):
 prices = [2, 3, 4, 6, 2, 6]
 
 try:
-    if (maxProfitChecker(prices) == maxProfit(prices)):
+    resultStudent = maxProfit(prices)
+    resultChecker = maxProfitChecker(prices)
+    if (resultChecker == resultStudent):
         print('OK')
     else:
-        print("NotOK")
+        print(f'Got: {resultStudent} Expected: {resultChecker}')
 except Exception:
-    print('NotOK')
+    print('Function not found | Error typo or return in the function')
