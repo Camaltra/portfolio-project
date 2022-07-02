@@ -4,7 +4,11 @@ import CheckCard from "../check-card/check-card.component";
 
 const CheckCardHistory = ({ dataCheck }) => {
   return (
-    <div className="check-card-history-container">
+    <div
+      className={`check-card-history-container ${
+        dataCheck.checkDetails[0].success ? "good" : "not-good"
+      }`}
+    >
       <div className="check-card-history-user-info">
         <h1>{dataCheck.taskId}.</h1>
         <h1>{dataCheck.userUsername}</h1>
@@ -20,8 +24,10 @@ const CheckCardHistory = ({ dataCheck }) => {
         </h1>
       </div>
       <div className="check-card-history-checks-details">
-        {dataCheck.checkDetails.map((check) => {
-          return <CheckCard check={check} />;
+        {dataCheck.checkDetails[0].checkerResult.map((check) => {
+          return (
+            <CheckCard key={check.checkId} check={check} fromAdmin={true} />
+          );
         })}
       </div>
     </div>

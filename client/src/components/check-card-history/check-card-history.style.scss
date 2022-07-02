@@ -6,10 +6,10 @@
   flex-direction: column;
   height: 700px;
   width: 500px;
-  border: solid 0.3px #d4cfcf;
   margin: 20px 30px 20px 30px;
   border-radius: 40px;
   position: relative;
+
   h1 {
     font-size: 25px;
   }
@@ -47,4 +47,12 @@
     flex-direction: row;
     flex-wrap: wrap;
   }
+}
+
+.good {
+  border: solid 1px green;
+}
+
+.not-good {
+  border: solid 1px red;
 }

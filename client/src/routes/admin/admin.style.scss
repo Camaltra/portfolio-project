@@ -1,9 +1,31 @@
-.all-check-card-container {
+.admin-controller {
+  margin-top: 50px;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   background-color: #f9f9f9;
-  margin-top: 50px;
+
+  .admin-search-box {
+    .search-box {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      height: 100px;
+      width: 300px;
+      text-align: center;
+      font-size: 4em;
+    }
+
+    .search-box::placeholder {
+      text-align: center;
+    }
+  }
+
+  .all-check-card-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
 }

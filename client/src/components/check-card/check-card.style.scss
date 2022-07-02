@@ -20,3 +20,15 @@
   align-items: center;
   margin: 10px 10px 10px 10px;
 }
+
+.check-card-container-good-check.clickable:hover {
+  border: solid 3px rgb(0, 107, 0);
+}
+
+.check-card-container-false-check.clickable:hover {
+  border: solid 3px rgb(230, 0, 0);
+}
+
+.clickable:hover {
+  cursor: pointer;
+}
