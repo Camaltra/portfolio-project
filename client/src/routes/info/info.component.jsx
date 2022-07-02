@@ -1,4 +1,5 @@
 import { Link } from "react-scroll";
+import { useInView } from "react-intersection-observer";
 
 import header from "../../assets/HTW.png";
 import fullPath from "../../assets/fullpath.png";
@@ -24,6 +25,12 @@ import {
 import "./info.style.scss";
 
 const Info = () => {
+  const { ref: featureOne, inView: featureOneVisible } = useInView();
+  const { ref: featureTwo, inView: featureTwoVisible } = useInView();
+  const { ref: featureThree, inView: featureThreeVisible } = useInView();
+  const { ref: aboutCard, inView: aboutCardVisible } = useInView();
+  const { ref: teamCard, inView: teamCardVisible } = useInView();
+
   return (
     <div className="info-container">
       <img src={borderTop} className="border-top" alt="boardertop" />
@@ -93,7 +100,12 @@ const Info = () => {
         <h1 className="info-section-title" id="feature">
           Project Features
         </h1>
-        <div className="info-feature">
+        <div
+          className={`info-feature right ${
+            featureOneVisible ? "isVisible" : ""
+          }`}
+          ref={featureOne}
+        >
           <h1>Full Path courses</h1>
           <img src={fullPath} alt="fullPath" />
           <p>
@@ -102,7 +114,12 @@ const Info = () => {
           </p>
           <p>5 sections for 5 weeks of training.</p>
         </div>
-        <div className="info-feature">
+        <div
+          className={`info-feature left ${
+            featureTwoVisible ? "isVisible" : ""
+          }`}
+          ref={featureTwo}
+        >
           <h1>Randomize Question trainning</h1>
           <img src={randomize} alt="randomize" />
           <p>
@@ -114,7 +131,12 @@ const Info = () => {
             full-path, and even more
           </p>
         </div>
-        <div className="info-feature">
+        <div
+          className={`info-feature right ${
+            featureThreeVisible ? "isVisible" : ""
+          }`}
+          ref={featureThree}
+        >
           <h1>Admin section control</h1>
           <img src={admin} alt="admin" />
           <p>
@@ -129,7 +151,12 @@ const Info = () => {
           About
         </h1>
         <div className="about-container">
-          <div className="project-about-card">
+          <div
+            className={`project-about-card left ${
+              aboutCardVisible ? "isVisible" : ""
+            }`}
+            ref={aboutCard}
+          >
             <h1>The Idea</h1>
             <p>
               The idea of the project started when I wanted to train my skills
@@ -150,7 +177,12 @@ const Info = () => {
               platform
             </p>
           </div>
-          <div className="team-github-cards">
+          <div
+            className={`team-github-cards right ${
+              teamCardVisible ? "isVisible" : ""
+            }`}
+            ref={teamCard}
+          >
             <div className="team-card">
               <h1>The Team</h1>
               <h2>Mickael</h2>
