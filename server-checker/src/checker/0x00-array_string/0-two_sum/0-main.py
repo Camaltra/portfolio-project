@@ -11,9 +11,11 @@ nums = [1, 3, 4, 5, 9, 10]
 target = 8
 
 try:
-    if (twoSumChecker(nums, target) == twoSum(nums, target)):
+    resultStudent = twoSum(nums, target)
+    resultChecker = twoSumChecker(nums, target)
+    if (resultChecker == resultStudent):
         print('OK')
     else:
-        print('NotOK')
+        print(f'Got: {resultStudent} Expected: {resultChecker}')
 except Exception:
-    print('NotOk')
+    print('Function not found | Error typo or return in the function')

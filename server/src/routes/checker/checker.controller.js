@@ -13,7 +13,7 @@ const httpGetCheckRequest = async (req, res) => {
   let statusRes = 000;
 
   await axios
-    .post("http://localhost:8001/api/v1/checker", {
+    .post("http://localhost:8001/api/v2/checker", {
       github_username: GITHUB_NAME,
       task_id: TASK_ID,
       section_id: SECTION_ID,
@@ -49,15 +49,17 @@ const httpGetCheckRequest = async (req, res) => {
     console.log(`${req.user}: error`);
   });
 
-  let isSucced = true;
-  for (let i = 0; i < NUMBER_OF_CHECKS; i++) {
-    if (response[i].isGood === false) isSucced = false;
-  }
+  console.log(response);
 
-  if (isSucced) {
-    const done = await addTaskToUserById(TASK_ID, req.user);
-    if (!done)
+  for (let i = 0; i < NUMBER_OF_CHECKS; i++) {
+    delete response.checkerResult[i].output;
+  }
+  console.log(response);
+
+  if (response.success) {
+    await addTaskToUserById(TASK_ID, req.user).catch((err) => {
       console.error(`${req.user}: didn't add ${TASK_ID} into the done tasks`);
+    });
   }
 
   return res.status(200).json(response);

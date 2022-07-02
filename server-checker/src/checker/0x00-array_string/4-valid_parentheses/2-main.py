@@ -14,9 +14,11 @@ def validParenthesesChecker(parenthesesString):
 parenthesesString = "((({})))"
 
 try:
-    if (validParenthesesChecker(parenthesesString) == validParentheses(parenthesesString)):
+    resultStudent = validParentheses(parenthesesString)
+    resultChecker = validParenthesesChecker(parenthesesString)
+    if (resultChecker == resultStudent):
         print('OK')
     else:
-        print("NotOK")
+        print(f'Got: {resultStudent} Expected: {resultChecker}')
 except Exception:
-    print('NotOK')
+    print('Function not found | Error typo or return in the function')
