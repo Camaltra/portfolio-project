@@ -36,7 +36,7 @@ const getResult = async (tokenString) => {
     if (allSumbissionFinished) {
       good = true;
     } else {
-      setTimeout(() => {}, 700);
+      await setTimeout(() => {}, 700);
     }
     console.log(good);
   }
@@ -85,7 +85,7 @@ const getResponse = async (data) => {
     tokenArray.push(data.token);
   });
   console.log(tokenArray);
-  setTimeout(() => {}, 1500);
+  await setTimeout(() => {}, 1500);
   return await getResult(tokenArray.join());
 };
 

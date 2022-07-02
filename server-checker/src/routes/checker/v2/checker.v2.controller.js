@@ -10,6 +10,7 @@ const REPO_NAME = "HTW-interview_trainning";
 require("dotenv").config();
 
 const httpCheckTaskV2 = async (req, res) => {
+  console.log("V2 called");
   const GITHUB_NAME = String(req.body.github_username);
   const TASK_ID = String(req.body.task_id);
   const SECTION_ID = String(req.body.section_id);
@@ -97,6 +98,7 @@ const httpCheckTaskV2 = async (req, res) => {
   const resultFormCheckerCode = await getResponse({
     submissions: allCode,
   }).catch((err) => {
+    console.log(err);
     error = true;
   });
 
