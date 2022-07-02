@@ -25,7 +25,7 @@ const ModalTask = ({ open, onClose, onCheck, checkList, isDone }) => {
                     <CheckCard
                       key={check.checkId}
                       check={check}
-                      isDone={isDone}
+                      fromAdmin={false}
                     />
                   );
                 })}

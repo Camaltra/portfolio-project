@@ -6,9 +6,9 @@
   flex-direction: column;
   height: 700px;
   width: 500px;
-  border: solid 0.3px #d4cfcf;
   margin: 20px 30px 20px 30px;
   border-radius: 40px;
+  position: relative;
 
   h1 {
     font-size: 25px;
@@ -18,24 +18,41 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    top: 60px;
+    text-align: center;
   }
 
   .check-card-history-user-info {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin-bottom: 40px;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    background-color: #efefef;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    height: 50px;
+    width: 100%;
+
+    h1 {
+      margin: 10px 20px 0px 20px;
+    }
   }
 
   .check-card-history-checks-details {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-
-    .check-card-history-check-check {
-      display: flex;
-    }
+    flex-direction: row;
+    flex-wrap: wrap;
   }
+}
+
+.good {
+  border: solid 1px green;
+}
+
+.not-good {
+  border: solid 1px red;
 }

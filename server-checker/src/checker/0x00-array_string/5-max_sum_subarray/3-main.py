@@ -10,9 +10,11 @@ def maxSumSubarrayChecker(nums):
 nums = [3, 4, 5, -1, 10, -10, -2, 4,  -3, -10, 3]
 
 try:
-    if (maxSumSubarrayChecker(nums) ==  maxSumSubarray(nums)):
+    resultStudent = maxSumSubarray(nums)
+    resultChecker = maxSumSubarrayChecker(nums)
+    if (resultChecker == resultStudent):
         print('OK')
     else:
-        print("NotOK")
+        print(f'Got: {resultStudent} Expected: {resultChecker}')
 except Exception:
-    print('NotOK')
+    print('Function not found | Error typo or return in the function')
