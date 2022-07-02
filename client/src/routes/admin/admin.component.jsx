@@ -11,6 +11,8 @@ const AdminDashboard = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [history, setHistory] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [filteredHistoryByUser, setFilteredHistoryByUser] = useState(history);
+  const [searchField, setSearchField] = useState("");
 
   useEffect(() => {
     axios
@@ -28,6 +30,19 @@ const AdminDashboard = () => {
       });
   }, []);
 
+  useEffect(() => {
+    const newFilteredHistoryByUser = history.filter((check) => {
+      return check.userUsername.toLocaleLowerCase().includes(searchField);
+    });
+
+    setFilteredHistoryByUser(newFilteredHistoryByUser);
+  }, [history, searchField]);
+
+  const onSearchChange = (event) => {
+    const searchFieldString = event.target.value.toLocaleLowerCase();
+    setSearchField(searchFieldString);
+  };
+
   return isLoading ? (
     <>
       {!isAdmin ? (
@@ -35,10 +50,22 @@ const AdminDashboard = () => {
       ) : (
         <>
           <NavBar isUserAdmin={true} />
-          <div className="all-check-card-container">
-            {history.map((check) => {
-              return <CheckCardHistory key={check.checkId} dataCheck={check} />;
-            })}
+          <div className="admin-controller">
+            <div className="admin-search-box">
+              <input
+                className="search-box"
+                type="search"
+                placeholder="User"
+                onChange={onSearchChange}
+              />
+            </div>
+            <div className="all-check-card-container">
+              {filteredHistoryByUser.map((check) => {
+                return (
+                  <CheckCardHistory key={check.checkId} dataCheck={check} />
+                );
+              })}
+            </div>
           </div>
         </>
       )}
