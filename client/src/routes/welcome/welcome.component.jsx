@@ -45,7 +45,24 @@ const Welcome = () => {
         },
         data: userInfos,
       };
-      const result = await axios.request(options);
+      const result = await axios.request(options).catch((err) => {});
+
+      const emailOptions = {
+        method: "POST",
+        url: "http://localhost:8000/api/v1/email/signUp",
+        headers: {
+          "content-type": "application/json",
+          "Content-Type": "application/json",
+        },
+        data: {
+          email: user.email,
+          username: userInfos.username,
+        },
+      };
+
+      await axios.request(emailOptions).catch((err) => {
+        console.error(err);
+      });
 
       if (result) {
         navigateToDashboard();
