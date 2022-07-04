@@ -1,6 +1,7 @@
-import axios from "axios";
 import { useContext, useState, useEffect } from "react";
 import { Navigate } from "react-router";
+import { Helmet } from "react-helmet";
+import axios from "axios";
 
 import { navigateToDashboard } from "../../navigate-functions/navigate-functions";
 import UserProvider from "../../context/user/user.context";
@@ -78,6 +79,10 @@ const Welcome = () => {
     <>
       {!user.githubProfile ? (
         <div className="welcome-container">
+          <Helmet>
+            <meta charSet="utf-8" />
+            <title>Welcome</title>
+          </Helmet>
           <h1 className="welcome-title">Hippo'nterview</h1>
           <div className="welcome-card">
             <h1 className="welcome-hey">Heyyyyyy!</h1>

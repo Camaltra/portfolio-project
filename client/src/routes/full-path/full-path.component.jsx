@@ -1,4 +1,5 @@
 import { useContext, useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import axios from "axios";
 
 import CardTask from "../../components/card-task/card-task.components";
@@ -37,9 +38,13 @@ const FullPath = () => {
 
   return isLoading ? (
     //Creer une page de loading...
-    <div></div>
+    <></>
   ) : (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Full Path</title>
+      </Helmet>
       <NavBar isUserAdmin={user.admin} />
       <div className="full-path-container">
         <div className="section-select">

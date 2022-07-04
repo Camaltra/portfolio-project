@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 import NavBar from "../../components/navbar/navbar.component";
 import {
@@ -27,6 +28,10 @@ const Dashboard = () => {
     <>
       {user.githubProfile ? (
         <div>
+          <Helmet>
+            <meta charSet="utf-8" />
+            <title>Dashboard</title>
+          </Helmet>
           <NavBar isUserAdmin={user.admin} />
           <div className="dashboard-container">
             <div className="dashboard-greeting">

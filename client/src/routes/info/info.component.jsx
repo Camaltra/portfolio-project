@@ -1,5 +1,6 @@
 import { Link } from "react-scroll";
 import { useInView } from "react-intersection-observer";
+import { Helmet } from "react-helmet";
 
 import header from "../../assets/HTW.png";
 import fullPath from "../../assets/fullpath.png";
@@ -33,6 +34,11 @@ const Info = () => {
 
   return (
     <div className="info-container">
+      {" "}
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Info</title>
+      </Helmet>
       <img src={borderTop} className="border-top" alt="boardertop" />
       <img src={borderRight} className="border-right" alt="boarderright" />
       <div className="info-header-container">

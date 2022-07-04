@@ -1,4 +1,5 @@
 import { useEffect, useState, useContext } from "react";
+import { Helmet } from "react-helmet";
 import axios from "axios";
 
 import CardTask from "../../components/card-task/card-task.components";
@@ -38,6 +39,10 @@ const Randomize = () => {
     <></>
   ) : (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Randomize</title>
+      </Helmet>
       <NavBar isUserAdmin={user.admin} />
       <div className="randomize-container">
         <div className="randomize-card-container">

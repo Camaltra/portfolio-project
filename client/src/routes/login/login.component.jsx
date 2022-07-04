@@ -1,4 +1,5 @@
 import { navigateToInfo } from "../../navigate-functions/navigate-functions";
+import { Helmet } from "react-helmet";
 
 import "./login.style.scss";
 
@@ -9,6 +10,10 @@ const LoginPage = () => {
 
   return (
     <div className="login-container">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Login</title>
+      </Helmet>
       <div className="login-header">
         <h1>Hyppo'nterview</h1>
       </div>
