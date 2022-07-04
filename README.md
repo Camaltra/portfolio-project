@@ -36,6 +36,12 @@ Create a .env file at the root of the server and server-checker folders, with:
   - Coockie session key
     - COOKIE_KEY_1
     - COOKIE_KEY_2
+  - SendGrid API control ([SendGrid](https://sendgrid.com))
+    - SENDGRID_API_KEY
+    - SENDGRID_EMAIL
+    - SENDGRID_SIGNUP_TEMPLATE
+
+Create an other file in server-checker/src/ called checker_buff
 
 Then, for now, there is not global installation and server starting. So go to each server, server-checker, client and run `npm install`. To finish, just start each server in a terminal with `npm run watch` for the two server side, and `npm run start` for the client side.
 
