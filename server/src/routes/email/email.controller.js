@@ -15,6 +15,11 @@ const httpSendSignUpEmail = async (req, res) => {
     !process.env.SENDGRID_EMAIL ||
     !process.env.SENDGRID_SIGNUP_TEMPLATE
   ) {
+    console.log(
+      process.env.SENDGRID_API_KEY,
+      process.env.SENDGRID_EMAIL,
+      process.env.SENDGRID_SIGNUP_TEMPLATE
+    );
     return res.status(200).json({ error: "Params not initilize" });
   }
   await sendSignInEmail(email, username).catch((err) => {
