@@ -43,18 +43,19 @@ const getResult = async (tokenString) => {
   let i = 2;
   const checkerResult = [];
   responseData.forEach((checked) => {
+    console.log(checked);
     if (checked.stdout === "OK\n") {
       const validCheck = {
         checkId: i,
         isGood: true,
-        output: checked.stdout,
+        output: checked.stdout ? checked.stdout : checked.stderr,
       };
       checkerResult.push(validCheck);
     } else {
       const notValidCheck = {
         checkId: i,
         isGood: false,
-        output: checked.stdout,
+        output: checked.stdout ? checked.stdout : checked.stderr,
       };
       checkerResult.push(notValidCheck);
     }
