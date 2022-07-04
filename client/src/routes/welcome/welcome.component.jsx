@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import { Navigate } from "react-router";
 import { Helmet } from "react-helmet";
 import axios from "axios";
@@ -10,7 +10,6 @@ import "./welcome.style.scss";
 
 const Welcome = () => {
   const user = useContext(UserProvider.context);
-  const [loading, setLoading] = useState(true);
 
   const [userInfos, setUserInfo] = useState({
     username: "",
@@ -25,11 +24,10 @@ const Welcome = () => {
     setUserInfo({ ...userInfos, githubProfile: event.target.value });
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 250);
-  }, []);
+  const URL =
+    process.env.REACT_APP_ENV === "dev"
+      ? "http://localhost:8000"
+      : process.env.REACT_APP_API_URL;
 
   const updateUserInfos = async () => {
     if (userInfos.username === "") {
@@ -39,7 +37,7 @@ const Welcome = () => {
     } else {
       const options = {
         method: "PUT",
-        url: `http://localhost:8000/api/v1/users/${user.id}`,
+        url: `${URL}/api/v1/users/${user.id}`,
         headers: {
           "content-type": "application/json",
           "Content-Type": "application/json",
@@ -50,7 +48,7 @@ const Welcome = () => {
 
       const emailOptions = {
         method: "POST",
-        url: "http://localhost:8000/api/v1/email/signUp",
+        url: `${URL}/api/v1/email/signUp`,
         headers: {
           "content-type": "application/json",
           "Content-Type": "application/json",
@@ -73,9 +71,7 @@ const Welcome = () => {
     }
   };
 
-  return loading ? (
-    <div></div>
-  ) : (
+  return (
     <>
       {!user.githubProfile ? (
         <div className="welcome-container">

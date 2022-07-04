@@ -10,7 +10,6 @@ import "./profile.style.scss";
 
 const Profile = () => {
   const user = useContext(UserProvider.context);
-  const [loading, setLoading] = useState(true);
 
   const [profileInfos, setProfileInfos] = useState({
     email: "",
@@ -19,9 +18,6 @@ const Profile = () => {
   });
 
   useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 250);
     setProfileInfos({
       email: user.email,
       username: user.username,
@@ -41,10 +37,15 @@ const Profile = () => {
     setProfileInfos({ ...profileInfos, email: event.target.value });
   };
 
+  const URL =
+    process.env.REACT_APP_ENV === "dev"
+      ? "http://localhost:8000"
+      : process.env.REACT_APP_API_URL;
+
   const updateUserInfos = async () => {
     const options = {
       method: "PUT",
-      url: `http://localhost:8000/api/v1/users/${user.id}`,
+      url: `${URL}/api/v1/users/${user.id}`,
       headers: {
         "content-type": "application/json",
         "Content-Type": "application/json",
@@ -60,9 +61,7 @@ const Profile = () => {
     }
   };
 
-  return loading ? (
-    <div></div>
-  ) : (
+  return (
     <div className="profile-container">
       <Helmet>
         <meta charSet="utf-8" />

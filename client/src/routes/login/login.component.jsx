@@ -4,8 +4,13 @@ import { Helmet } from "react-helmet";
 import "./login.style.scss";
 
 const LoginPage = () => {
+  const URL =
+    process.env.REACT_APP_ENV === "dev"
+      ? "http://localhost:8000"
+      : process.env.REACT_APP_API_URL;
+
   const loginWithGoogle = () => {
-    window.open("http://localhost:8000/auth/google", "_self");
+    window.open(`${URL}/auth/google`, "_self");
   };
 
   return (

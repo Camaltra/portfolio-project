@@ -149,6 +149,7 @@ const Info = () => {
             Monitor all checker call from students and help them to find issues
             in their codes
           </p>
+          <p>Get acces to the checker output to find all issues</p>
         </div>
       </div>
       <img src={dotLine} alt="dotline" className="dot-line-separator" />

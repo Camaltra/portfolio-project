@@ -12,11 +12,10 @@ const Randomize = () => {
   const user = useContext(UserProvider.context);
 
   const [task, setTask] = useState({});
-  const [isLoading, setLoading] = useState(true);
 
-  const downloadTask = () => {
+  const downloadTask = (URL) => {
     axios
-      .get("http://localhost:8000/api/v1/tasks/random")
+      .get(`${URL}/api/v1/tasks/random`)
       .then((res) => {
         setTask(res.data);
       })
@@ -26,18 +25,14 @@ const Randomize = () => {
   };
 
   useEffect(() => {
-    downloadTask();
+    const URL =
+      process.env.REACT_APP_ENV === "dev"
+        ? "http://localhost:8000"
+        : process.env.REACT_APP_API_URL;
+    downloadTask(URL);
   }, []);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 250);
-  }, []);
-
-  return isLoading ? (
-    <></>
-  ) : (
+  return (
     <>
       <Helmet>
         <meta charSet="utf-8" />

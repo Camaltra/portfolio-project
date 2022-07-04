@@ -16,8 +16,12 @@ const AdminDashboard = () => {
   const [searchField, setSearchField] = useState("");
 
   useEffect(() => {
+    const URL =
+      process.env.REACT_APP_ENV === "dev"
+        ? "http://localhost:8000"
+        : process.env.REACT_APP_API_URL;
     axios
-      .get("http://localhost:8000/api/v1/history", {
+      .get(`${URL}/api/v1/history`, {
         withCredentials: true,
       })
       .then((res) => {
