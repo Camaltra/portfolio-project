@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router";
+import { Helmet } from "react-helmet";
 import axios from "axios";
 
 import NavBar from "../../components/navbar/navbar.component";
@@ -49,6 +50,10 @@ const AdminDashboard = () => {
         <Navigate to="/dashboard" />
       ) : (
         <>
+          <Helmet>
+            <meta charSet="utf-8" />
+            <title>Admin</title>
+          </Helmet>
           <NavBar isUserAdmin={true} />
           <div className="admin-controller">
             <div className="admin-search-box">

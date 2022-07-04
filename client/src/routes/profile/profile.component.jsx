@@ -1,4 +1,5 @@
 import { useContext, useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import axios from "axios";
 
 import NavBar from "../../components/navbar/navbar.component";
@@ -63,6 +64,10 @@ const Profile = () => {
     <div></div>
   ) : (
     <div className="profile-container">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Profile</title>
+      </Helmet>
       <NavBar isUserAdmin={user.admin} />
       <div className="profile-text">
         <h1>Need to change your</h1>
