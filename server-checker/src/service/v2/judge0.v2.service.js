@@ -47,14 +47,14 @@ const getResult = async (tokenString) => {
       const validCheck = {
         checkId: i,
         isGood: true,
-        output: checked.stdout,
+        output: checked.stdout ? checked.stdout : checked.stderr,
       };
       checkerResult.push(validCheck);
     } else {
       const notValidCheck = {
         checkId: i,
         isGood: false,
-        output: checked.stdout,
+        output: checked.stdout ? checked.stdout : checked.stderr,
       };
       checkerResult.push(notValidCheck);
     }
