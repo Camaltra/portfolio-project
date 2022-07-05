@@ -24,13 +24,14 @@ const Randomize = () => {
       });
   };
 
+  const URL =
+    process.env.REACT_APP_ENV === "dev"
+      ? "http://localhost:8000"
+      : process.env.REACT_APP_API_URL;
+
   useEffect(() => {
-    const URL =
-      process.env.REACT_APP_ENV === "dev"
-        ? "http://localhost:8000"
-        : process.env.REACT_APP_API_URL;
     downloadTask(URL);
-  }, []);
+  }, [URL]);
 
   return (
     <>
@@ -46,7 +47,7 @@ const Randomize = () => {
         <div
           className="randomize-button"
           onClick={() => {
-            downloadTask();
+            downloadTask(URL);
           }}
         >
           Refresh

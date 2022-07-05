@@ -4,6 +4,8 @@ const app = require("./app");
 const { mongoConnect } = require("./services/mongo");
 const populateAllTasks = require("./models/tasks/load-data-tasks");
 
+require("dotenv").config();
+
 const PORT = 8000;
 
 const createServer = async () => {
