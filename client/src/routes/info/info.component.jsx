@@ -1,6 +1,7 @@
 import { Link } from "react-scroll";
 import { useInView } from "react-intersection-observer";
 import { Helmet } from "react-helmet";
+import ReactPlayer from "react-player";
 
 import header from "../../assets/HTW.png";
 import fullPath from "../../assets/fullpath.png";
@@ -221,6 +222,10 @@ const Info = () => {
         <h1 className="info-section-title" id="learn-more">
           Learn More
         </h1>
+        <ReactPlayer
+          className="video"
+          url="https://www.youtube.com/watch?v=gOKfA4TKZR4"
+        />
       </div>
     </div>
   );
