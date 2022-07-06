@@ -7,7 +7,7 @@ const httpGetCheckRequest = async (req, res) => {
   const SERVER_CHECKER_IP =
     process.env.NODE_APP_ENV === "dev"
       ? "http://localhost:8001"
-      : process.env.REACT_APP_IP;
+      : process.env.SERVER_CHECKER_IP;
 
   const GITHUB_NAME = req.query.github_username;
   const TASK_ID = req.query.task_id;
