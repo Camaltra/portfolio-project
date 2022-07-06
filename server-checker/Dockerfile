@@ -2,6 +2,8 @@ FROM node:lts-alpine
 
 WORKDIR /app
 
+RUN apk --no-cache add git
+
 COPY package*.json ./
 
 RUN npm install --only=production
