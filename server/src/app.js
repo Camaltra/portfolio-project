@@ -11,6 +11,11 @@ const apiRouter = require("./routes/api/api.v1");
 
 require("dotenv").config();
 
+const REACT_APP_IP =
+  process.env.NODE_APP_ENV === "dev"
+    ? "http://localhost:3000"
+    : process.env.REACT_APP_IP;
+
 require("./auth/passport.google.auth");
 
 const app = express();
@@ -20,7 +25,7 @@ app.use(morgan("combined"));
 app.use(
   cors({
     credentials: true,
-    origin: "http://localhost:3000",
+    origin: REACT_APP_IP,
   })
 );
 

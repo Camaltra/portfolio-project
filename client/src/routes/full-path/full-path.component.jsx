@@ -11,7 +11,6 @@ import "./full-path.style.scss";
 const FullPath = () => {
   const user = useContext(UserProvider.context);
 
-  const [isLoading, setLoading] = useState(true);
   const [allTasks, setAllTasks] = useState([]);
   const [allTasksToShow, setAllTasksToShow] = useState(null);
 
@@ -24,22 +23,18 @@ const FullPath = () => {
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 250);
-  }, []);
+    const URL =
+      process.env.REACT_APP_ENV === "dev"
+        ? "http://localhost:8000"
+        : process.env.REACT_APP_API_URL;
 
-  useEffect(() => {
     axios
-      .get("http://localhost:8000/api/v1/tasks")
+      .get(`${URL}/api/v1/tasks`)
       .then((response) => setAllTasks(response.data))
       .catch((err) => console.log(err));
   }, []);
 
-  return isLoading ? (
-    //Creer une page de loading...
-    <></>
-  ) : (
+  return (
     <>
       <Helmet>
         <meta charSet="utf-8" />

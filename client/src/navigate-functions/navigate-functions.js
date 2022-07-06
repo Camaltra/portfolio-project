@@ -1,5 +1,10 @@
+const URL =
+  process.env.REACT_APP_ENV === "dev"
+    ? "http://localhost:8000"
+    : process.env.REACT_APP_API_URL;
+
 export const logOut = () => {
-  window.open("http://localhost:8000/auth/logout", "_self");
+  window.open(`${URL}/auth/logout`, "_self");
 };
 
 export const navigateToFullPath = () => {
