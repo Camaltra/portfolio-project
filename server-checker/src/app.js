@@ -9,9 +9,14 @@ const app = express();
 
 app.use(morgan("combined"));
 
+const NODE_APP_IP =
+  process.env.NODE_APP_ENV === "dev"
+    ? "http://localhost:3000"
+    : process.env.NODE_APP_IP;
+
 app.use(
   cors({
-    origin: "http://localhost:8000",
+    origin: NODE_APP_IP,
   })
 );
 

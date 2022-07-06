@@ -2,7 +2,7 @@ version: "3.3"
 services:
   nodeserver:
     build:
-      context: ../../server
+      context: ../../server-checker
     ports:
       - "8000:8000"
   nginx:
