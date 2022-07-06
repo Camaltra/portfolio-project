@@ -21,6 +21,11 @@ const CardTask = ({ task, user }) => {
     setIsOpen(false);
   };
 
+  const URL =
+    process.env.REACT_APP_ENV === "dev"
+      ? "http://localhost:8000"
+      : process.env.REACT_APP_API_URL;
+
   const httpSendCodeToChecker = async (
     taskId,
     sectionId,
@@ -32,7 +37,7 @@ const CardTask = ({ task, user }) => {
       setIsCurrentlyChecking(true);
       await axios
         .get(
-          `http://localhost:8000/api/v1/check?task_id=${taskId}&github_username=${githubUsername}&section_id=${sectionId}&number_of_checks=${numberOfChecks}`,
+          `${URL}/api/v1/check?task_id=${taskId}&github_username=${githubUsername}&section_id=${sectionId}&number_of_checks=${numberOfChecks}`,
           { withCredentials: true }
         )
         .then((res) => {

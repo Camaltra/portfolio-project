@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
@@ -14,17 +14,7 @@ import "./dashboard.style.scss";
 const Dashboard = () => {
   const user = useContext(UserProvider.context);
 
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 250);
-  }, []);
-
-  return loading ? (
-    <></>
-  ) : (
+  return (
     <>
       {user.githubProfile ? (
         <div>
