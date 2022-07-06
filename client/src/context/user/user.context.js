@@ -11,6 +11,7 @@ const UserProvider = ({ children }) => {
       process.env.REACT_APP_ENV === "dev"
         ? "http://localhost:8000"
         : process.env.REACT_APP_API_URL;
+
     const fetchDataUser = async () => {
       axios
         .get(`${URL}/auth/user`, { withCredentials: true })
