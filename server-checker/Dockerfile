@@ -8,7 +8,7 @@ RUN npm install --only=production
 
 COPY . .
 
-USER node
+USER root
 
 EXPOSE 8000
 
