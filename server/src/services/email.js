@@ -4,7 +4,7 @@ require("dotenv").config();
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-const sendSignInEmail = (email, username) => {
+const sendSignInEmail = async (email, username) => {
   const msg = {
     to: email, // Change to your recipient
     from: process.env.SENDGRID_EMAIL, // Change to your verified sender
@@ -18,8 +18,8 @@ const sendSignInEmail = (email, username) => {
     .then(() => {
       console.log("Email sent");
     })
-    .catch((error) => {
-      console.error(error);
+    .catch((err) => {
+      console.error(err);
     });
 };
 
