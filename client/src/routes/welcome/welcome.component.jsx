@@ -1,20 +1,19 @@
-import { useContext, useState } from "react";
+import { useEffect, useState } from "react";
 import { Navigate } from "react-router";
 import { Helmet } from "react-helmet";
 import axios from "axios";
 
 import { navigateToDashboard } from "../../navigate-functions/navigate-functions";
-import UserProvider from "../../context/user/user.context";
 
 import "./welcome.style.scss";
 
 const Welcome = () => {
-  const user = useContext(UserProvider.context);
-
   const [userInfos, setUserInfo] = useState({
     username: "",
     githubProfile: "",
   });
+  const [user, setUser] = useState();
+  const [loading, setLoading] = useState(true);
 
   const onChangeTypeUsername = (event) => {
     setUserInfo({ ...userInfos, username: event.target.value });
@@ -28,6 +27,14 @@ const Welcome = () => {
     process.env.REACT_APP_ENV === "dev"
       ? "http://localhost:8000"
       : process.env.REACT_APP_API_URL;
+
+  useEffect(() => {
+    axios
+      .get(`${URL}/auth/user`, { withCredentials: true })
+      .then((response) => setUser(response.data))
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
+  }, [URL]);
 
   const updateUserInfos = async () => {
     if (userInfos.username === "") {
@@ -73,7 +80,11 @@ const Welcome = () => {
 
   return (
     <>
-      {!user.githubProfile ? (
+      {loading ? (
+        <></>
+      ) : user.githubProfile ? (
+        <Navigate to="/dashboard" />
+      ) : (
         <div className="welcome-container">
           <Helmet>
             <meta charSet="utf-8" />
@@ -110,8 +121,6 @@ const Welcome = () => {
             </div>
           </div>
         </div>
-      ) : (
-        <Navigate to="/dashboard" />
       )}
     </>
   );
