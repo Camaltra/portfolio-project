@@ -1,17 +1,17 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import axios from "axios";
+import { Navigate } from "react-router";
 
 import CardTask from "../../components/card-task/card-task.components";
 import NavBar from "../../components/navbar/navbar.component";
-import UserProvider from "../../context/user/user.context";
 
 import "./randomize.style.scss";
 
 const Randomize = () => {
-  const user = useContext(UserProvider.context);
-
   const [task, setTask] = useState({});
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const downloadTask = (URL) => {
     axios
@@ -24,6 +24,19 @@ const Randomize = () => {
       });
   };
 
+  useEffect(() => {
+    const URL =
+      process.env.REACT_APP_ENV === "dev"
+        ? "http://localhost:8000"
+        : process.env.REACT_APP_API_URL;
+
+    axios
+      .get(`${URL}/auth/user`, { withCredentials: true })
+      .then((response) => setUser(response.data))
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
+  }, []);
+
   const URL =
     process.env.REACT_APP_ENV === "dev"
       ? "http://localhost:8000"
@@ -35,24 +48,32 @@ const Randomize = () => {
 
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Randomize</title>
-      </Helmet>
-      <NavBar isUserAdmin={user.admin} />
-      <div className="randomize-container">
-        <div className="randomize-card-container">
-          <CardTask task={task} user={user} />
-        </div>
-        <div
-          className="randomize-button"
-          onClick={() => {
-            downloadTask(URL);
-          }}
-        >
-          Refresh
-        </div>
-      </div>
+      {loading ? (
+        <></>
+      ) : user ? (
+        <>
+          <Helmet>
+            <meta charSet="utf-8" />
+            <title>Randomize</title>
+          </Helmet>
+          <NavBar isUserAdmin={user.admin} />
+          <div className="randomize-container">
+            <div className="randomize-card-container">
+              <CardTask task={task} user={user} />
+            </div>
+            <div
+              className="randomize-button"
+              onClick={() => {
+                downloadTask(URL);
+              }}
+            >
+              Refresh
+            </div>
+          </div>
+        </>
+      ) : (
+        <Navigate to="/" />
+      )}
     </>
   );
 };
