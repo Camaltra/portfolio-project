@@ -8,74 +8,21 @@ import LoginPage from "./routes/login/login.component";
 import Profile from "./routes/profile/profile.component";
 import Randomize from "./routes/randomize/randomize.component";
 import Welcome from "./routes/welcome/welcome.component";
-import {
-  ProtectedRoute,
-  AlreadyLogged,
-} from "./routes/security/security.routes";
 
 function App() {
   return (
     <Routes>
-      <Route
-        index
-        element={
-          <AlreadyLogged>
-            <LoginPage />
-          </AlreadyLogged>
-        }
-      />
+      <Route index element={<LoginPage />} />
 
       <Route path="info" element={<Info />} />
-      <Route
-        path="dashboard"
-        element={
-          <ProtectedRoute>
-            <Dashboard />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="full-path"
-        element={
-          <ProtectedRoute>
-            <FullPath />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="welcome"
-        element={
-          <ProtectedRoute>
-            <Welcome />
-          </ProtectedRoute>
-        }
-      />
+      <Route path="dashboard" element={<Dashboard />} />
+      <Route path="full-path" element={<FullPath />} />
+      <Route path="welcome" element={<Welcome />} />
 
-      <Route
-        path="*"
-        element={
-          <AlreadyLogged>
-            <LoginPage />
-          </AlreadyLogged>
-        }
-      />
+      <Route path="*" element={<LoginPage />} />
 
-      <Route
-        path="profile"
-        element={
-          <ProtectedRoute>
-            <Profile />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="randomize"
-        element={
-          <ProtectedRoute>
-            <Randomize />
-          </ProtectedRoute>
-        }
-      />
+      <Route path="profile" element={<Profile />} />
+      <Route path="randomize" element={<Randomize />} />
       <Route path="admin" element={<AdminDashboard />} />
     </Routes>
   );
