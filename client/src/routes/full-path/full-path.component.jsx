@@ -102,8 +102,28 @@ const FullPath = () => {
                 <p>Section 5</p>
               </div>
             </div>
+            <div className="requirements">
+              <h1>Requirements</h1>
+              <p>
+                Your repository <span>have to be public.</span>
+              </p>
+              <p>
+                All your files must begin by the header{" "}
+                <span>#!/usr/bin/python3.</span>
+              </p>
+              <p>
+                All your files should work under the{" "}
+                <span>3.8 python version.</span>
+              </p>
+              <p>
+                Comments and pycodestyle aren't tested, but it's nicer with.
+              </p>
+              <p>
+                And the most important is <span>TO HAVE FUN!.</span>
+              </p>
+            </div>
             {!allTasksToShow ? (
-              <div>Please select a section</div>
+              <div></div>
             ) : (
               <div className="all-card-container">
                 {allTasksToShow.map((task) => {
